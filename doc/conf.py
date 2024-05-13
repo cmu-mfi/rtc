@@ -26,7 +26,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-# html_logo = 'files/hbl_logo.png'
+html_theme_options = {
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': -1,
+}
+html_logo = 'files/white-logo-shadow.png'
 html_favicon = 'files/white-logo.ico'
 html_static_path = ['_static']
 

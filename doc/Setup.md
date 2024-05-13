@@ -1,7 +1,6 @@
 # Setup and Installation
 
 ```{contents}
-:maxdepth: 2
 ```
 
 ### CAD Files

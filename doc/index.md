@@ -20,6 +20,7 @@ There are two environments of reference in this project:
 ***
 ```{toctree}
 :maxdepth: 1
+:hidden:
 System.md
 Architecture.md
 Demonstrations.md
@@ -27,4 +28,5 @@ Setup.md
 Vibrotactile.md
 Vision.md
 DBB.md
+Contact.md
 ```
