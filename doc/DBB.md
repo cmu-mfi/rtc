@@ -1,14 +1,21 @@
-# Digital Backbone
+# Digital Data Backbone
 
 *Overview*
 
 ```{contents}
 ```
 
-## Architecture
+*<diagram>*
 
-## Metadata
+## Elements and Relations
 
-## Entity Relationship Diagram
+text
+
+### Layer 1
+
+### Layer 2
+
 
 ## Software
+
+<a href="https://github.com/cmu-mfi/dbb_interfaces.git" class="inline-button"><i class="fab fa-github"></i>dbb_interfaces</a>
