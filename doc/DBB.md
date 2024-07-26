@@ -11,9 +11,13 @@
 
 text
 
-### Layer 1
+### Data Generators
 
-### Layer 2
+### Event Listiner
+### Pub-Sub Broker
+### Storage Connectors
+### Cloud Storage
+### Retrieval
 
 
 ## Software
