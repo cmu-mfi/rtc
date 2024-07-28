@@ -1,15 +1,16 @@
 # Digital Data Backbone
 
-*Overview*
-
 ```{contents}
 ```
+## Overview
 
-*<diagram>*
+*insert some text*
+
+![ddb](files/ddb.png)
 
 ## Layers
 
-text
+*insert some text*
 
 ### Data Generators
 

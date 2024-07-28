@@ -1,14 +1,22 @@
 # Vision
 
-*Overview*
+intro about action and anchor
+
+*images*
 
 ```{contents}
 ```
 
-## Data Collection
+## TEACH: Data Collection
 
-## Models
+procedure steps
 
-## Training Pipeline
+table of hardware/data collected at each step
 
-## Execution Pipeline
+## LEARN: Model Training
+
+training procedure, data, and results
+
+paper links
+
+## EXECUTE: Model Inference
