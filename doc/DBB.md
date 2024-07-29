@@ -5,8 +5,7 @@
 ## Overview
 
 *insert some text*
-
-![ddb](files/ddb.png)
+![ddb](files/DBB_color.drawio.png)
 
 ## Layers
 
