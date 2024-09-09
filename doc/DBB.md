@@ -22,7 +22,8 @@ The cloud storage layer deliniates different storage solutions where data is sto
 ### Retrieval
 This layer provides retrieval services that can access data stored in the cloud storage.
 
-##Current Capability
+## Current Capability
+
 ### ROS to Aveva PI
 ### ROS to Local File Storage to Cloud File Storage
 ### Local File Storage to Cloud File Storage
