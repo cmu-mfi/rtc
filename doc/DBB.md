@@ -22,6 +22,11 @@ The cloud storage layer deliniates different storage solutions where data is sto
 ### Retrieval
 This layer provides retrieval services that can access data stored in the cloud storage.
 
+##Current Capability
+### ROS to Aveva PI
+### ROS to Local File Storage to Cloud File Storage
+### Local File Storage to Cloud File Storage
+### Local File Storage(xml) to Cloud File Storage
 ## Software
 
 <a href="https://github.com/cmu-mfi/dbb_interfaces.git" class="inline-button"><i class="fab fa-github"></i>dbb_interfaces</a>
