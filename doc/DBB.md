@@ -23,6 +23,7 @@ The cloud storage layer deliniates different storage solutions where data is sto
 This layer provides retrieval services that can access data stored in the cloud storage.
 
 ## Current Capability
+This will have the latest capability of connectivity within the Digital Data Backbone.
 
 ### ROS to Aveva PI
 ### ROS to Local File Storage to Cloud File Storage
