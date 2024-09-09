@@ -9,17 +9,17 @@
 
 This will provide descriptions of each layer.
 
-    ### Data Generators
+    **Data Generators**
     The layer shows some example of current and future generators of information for the digital backbone. These sources are responsible for generating data that will be collected and processed by the system.
-    ### Event Listener
+    **Event Listener**
     Event listeners monitor the data generators for events. They listen for data changes or updates from the data generators and pass the information to the MQTT Broker.
-    ### Pub-Sub Broker
+    Pub-Sub Broker
     The MQTT Broker acts as the central communication hub in the pub-sub model. It receives messages from event listeners and distributes them to the appropriate connectors based on specified subscriptions.
-    ### Storage Connectors
+    Storage Connectors
     These connectors subscribe to the MQTT Broker to receive data. They facilitate the transfer of data from the broker to the various storage systems (PI, SQL, File Storage).
-    ### Cloud Storage
+    Cloud Storage
     The cloud storage layer deliniates different storage solutions where data is stored. 
-    ### Retrieval
+    Retrieval
     This layer provides retrieval services that can access data stored in the cloud storage.
 
 ## Current Capability
