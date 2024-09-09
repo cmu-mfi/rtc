@@ -3,9 +3,7 @@
 ```{contents}
 ```
 ## Overview
-
-*insert some text*
-![ddb](files/DBB_color.drawio.png)
+![ddb](files/DigitalDataBackbone.png)
 
 ## Layers
 
