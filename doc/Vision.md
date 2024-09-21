@@ -18,6 +18,8 @@ Vision/Installation.md
 
 ```
 
+```{eval-rst}
+.. hidden::
 ## TEACH: Data Collection
 
 The data collection procedure involves manually jogging the robot to do an assembly/disassembly task during which camera and robot data is recorded. 
@@ -26,6 +28,7 @@ It is assumed that the system setup (like, camera calibration) is done before da
 
 ![data-collection](files/vision-data-collection.png)
 *Data collection procedure for an insertion placement task*
+```
 
 ## LEARN: Model Training
 

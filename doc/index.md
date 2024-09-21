@@ -18,7 +18,7 @@ The website is documentation of the robotic system which is result of first thre
 * To create robotic skills that can be combined with each other to enable a robot to perform a manufacturing task
 * For manufacturing tasks, we focus on the following
 
-|[!lego](lego.png)|[!nist](nist-1.png)|
+|![lego](files/lego.png)|![nist](files/nist-1.png)|
 |---|---|
 |LEGO block assembly|NIST task board #1 (insertion tasks)|
 
