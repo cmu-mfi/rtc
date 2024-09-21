@@ -20,7 +20,8 @@ Vision/Installation.md
 
 ```{eval-rst}
 .. hidden::
-## TEACH: Data Collection
+<h2> TEACH: Data Collection </h2>
+
 ```
 The data collection procedure involves manually jogging the robot to do an assembly/disassembly task during which camera and robot data is recorded. 
 
