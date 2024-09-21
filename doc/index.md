@@ -17,11 +17,10 @@ The website is documentation of the robotic system which is result of first thre
 ### Purpose
 * To create robotic skills that can be combined with each other to enable a robot to perform a manufacturing task
 * For manufacturing tasks, we focus on the following
-    * LEGO block assembly
-[!lego](lego.png)
 
-    * NIST task board #1 (insertion tasks)
-[!nist](nist-1.png)
+|[!lego](lego.png)|[!nist](nist-1.png)|
+|---|---|
+|LEGO block assembly|NIST task board #1 (insertion tasks)|
 
 * To create an autonomy pipeline that can be transferred to the ARM Institute for generalization across the robots that they have, and for extension to other forms of manufacturing tasks, as appropriate
 		
@@ -32,7 +31,7 @@ There are two environments of reference in this project:
 
 ***
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 <!-- :hidden: -->
 System.md
 <!-- Architecture.md -->
