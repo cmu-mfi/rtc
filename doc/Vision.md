@@ -9,6 +9,15 @@ The tasks involve placing one object (which we call the “action” object) at 
 ```{contents}
 ```
 
+```{toctree}
+:maxdepth: 2
+:hidden:
+
+Vision/Tutorial.md
+Vision/Installation.md
+
+```
+
 ## TEACH: Data Collection
 
 The data collection procedure involves manually jogging the robot to do an assembly/disassembly task during which camera and robot data is recorded. 
@@ -39,12 +48,3 @@ Execution is similar to the data collection process, except robot move autonomou
 
 Here is a flow diagram of execution steps involved for insertion placement task:
 ![vision-execute](files/vision-execute.png)
-
-```{toctree}
-:maxdepth: 2
-:hidden:
-
-Vision/Tutorial.md
-Vision/Installation.md
-
-```
