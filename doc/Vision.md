@@ -39,3 +39,12 @@ Execution is similar to the data collection process, except robot move autonomou
 
 Here is a flow diagram of execution steps involved for insertion placement task:
 ![vision-execute](files/vision-execute.png)
+
+```{toctree}
+:maxdepth: 2
+:hidden:
+
+Vision/Tutorial.md
+Vision/Installation.md
+
+```
