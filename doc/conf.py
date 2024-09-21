@@ -27,9 +27,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 0,
+    'navigation_depth': 1,
 }
 html_logo = 'files/white-logo-shadow.png'
 html_favicon = 'files/white-logo.ico'
