@@ -1,11 +1,11 @@
-# Digital Data Backbone
+# Digital Data Backbone - Overview
 
 ```{contents}
 ```
 ## Overview
 ![ddb](files/DigitalDataBackbone.png)
 
-## Layers
+### Layers
 
 This will provide descriptions of each layer.
 
@@ -22,15 +22,15 @@ This will provide descriptions of each layer.
     Retrieval
     This layer provides retrieval services that can access data stored in the cloud storage.
 
-## Current Capability
+### Current Capability
 This will have the latest capability of connectivity within the Digital Data Backbone.
 
-### ROS to Aveva PI
-### ROS to Local File Storage to Cloud File Storage
-### Local File Storage to Cloud File Storage
-### Local File Storage(xml) to Cloud File Storage
+* ROS to Aveva PI
+* ROS to Local File Storage to Cloud File Storage
+* Local File Storage to Cloud File Storage
+* Local File Storage(xml) to Cloud File Storage
 
-## Software
+### Software
 
 The github repository is organized as shown below. `from_mqtt` has modules for various "Connectors" in the "Storage Connector" layer, and similarly `to_mqtt` has modules for "Event Listener" layer.
 

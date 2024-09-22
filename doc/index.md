@@ -18,7 +18,7 @@ The website is documentation of the robotic system which is result of first thre
 * To create robotic skills that can be combined with each other to enable a robot to perform a manufacturing task
 * For manufacturing tasks, we focus on the following
 
-|![lego](files/lego.png)|![nist](files/nist-1.jpg)|
+|![lego](files/lego-small.png)|![nist](files/nist-1-small.jpg)|
 |---|---|
 |LEGO block assembly|NIST task board #1 (insertion tasks)|
 
@@ -29,16 +29,39 @@ There are two environments of reference in this project:
 * [The CMU-MFI Testbed]()
 * [The ARM RTC robot cell]() -->
 
-***
+
+
 ```{toctree}
-:maxdepth: 1
-<!-- :hidden: -->
+:hidden:
 System.md
-<!-- Architecture.md -->
-<!-- Demonstrations.md -->
-<!-- Setup.md -->
-Vibrotactile.md
-Vision.md
-DDB.md
+Highlights.md
 Contact.md
+```
+
+```{toctree}
+:hidden:
+:caption: Vision System
+
+Vision/Vision.md
+Vision/Installation.md
+Vision/Tutorial.md
+``` 
+
+```{toctree}
+:hidden:
+:caption: Vibrotactile System
+
+Vibrotactile/Vibrotactile.md
+Vibrotactile/Installation.md
+Vibrotactile/Tutorial.md
+```
+
+```{toctree}
+:hidden:
+:caption: Digital Data Backbone
+
+DDB/DDB.md
+DDB/Installation.md
+DDB/Tutorial.md
+
 ```

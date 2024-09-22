@@ -10,16 +10,17 @@ System/RobotTasks.md
 
 ``` -->
 
+### CMU Research Setup
+
 The diagram below shows how various equipment, sensors and virtual machines are connected to one another. Few key points to note:
 
 * The physical hardware of the cloud infrastructure is on CMU main campus
 * Mezzanine Lab equipment is located at Mill19 campus of CMU
 * The system is setup at one of the CMU labs [Mezzanine Lab](https://engineering.cmu.edu/mfi/facilities/equipment-details/mezzanine-lab.html). Multiple workstations and robots facilitate parallel research and engineering work on multiple "thrusts" of the project.
-*  
 
-|![hardware](files/system-hardware.png) <br> ![mezzlab](files/mezzlab.jpg) <br> System Implementation at Mezzanine Lab|
+|![hardware](files/system-hardware.png) <br> ![mezzlab](files/mezzlab.jpg) <br><br> <center>System Implementation at Mezzanine Lab</center>|
 |:--:|
-| ![hardware-proposed]() <br> Proposed Simplified Setup|
+| ![hardware-proposed]() <br><br> <center>Proposed Simplified Setup</center>|
 
 
 ### BOM

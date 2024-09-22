@@ -1,4 +1,4 @@
-# Vision
+# Vision System - Overview
 
 Vision skills teach robots how to transform arbitrary objects into target poses. We develop a pre-trained model for performing a wide variety of such tasks; this model
 can later be fine-tuned on data for a particular task of interest.
@@ -7,15 +7,6 @@ The tasks involve placing one object (which we call the “action” object) at 
 
 
 ```{contents}
-```
-
-```{toctree}
-:maxdepth: 2
-:hidden:
-
-Vision/Tutorial.md
-Vision/Installation.md
-
 ```
 
 ## TEACH: Data Collection
@@ -42,9 +33,11 @@ Data input for training:
 | ![wp-pcd](files/wp.gif) | ![dsub-pcd](files/dsub.gif) |
 | ![wp-image](files/wp.png) | ![dsub-image](files/dsub.jpg) |
 
+
 ## EXECUTE: Model Inference
 
 Execution is similar to the data collection process, except robot move autonomously using saved poses from earlier and uses trained model to infer right target pose for action object.
 
 Here is a flow diagram of execution steps involved for insertion placement task:
 ![vision-execute](files/vision-execute.png)
+

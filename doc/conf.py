@@ -27,12 +27,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 2,
+    'collapse_navigation': False,
+    'sticky_navigation': False,
+    'navigation_depth': -1,
 }
-html_logo = 'files/white-logo-shadow.png'
-html_favicon = 'files/white-logo.ico'
+# html_logo = 'files/white-logo-shadow.png'
+# html_logo = 'files/Firefly generate a minimalistic logo for robotics training center using robot arm illustration.png'
+html_logo = 'files/Firefly a robot arm doing assembly task, industry 4.png'
+# html_favicon = 'files/white-logo.ico'
+html_favicon = 'files/Firefly a robot arm doing assembly task, industry 4.ico'
 html_static_path = ['_static']
 
 html_css_files = [

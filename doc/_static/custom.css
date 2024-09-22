@@ -11,6 +11,12 @@
     font-size: medium;
 }
 
+/* .wy-menu-vertical .simple-breadcrumb,
+.wy-menu-vertical .toctree-l1,
+.wy-menu-vertical .toctree-l2 {
+    display: none;
+}*/
+
 .document .caption-text{
     font-size: medium;
 }
