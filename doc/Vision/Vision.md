@@ -15,14 +15,14 @@ The data collection procedure involves manually jogging the robot to do an assem
 
 It is assumed that the system setup (like, camera calibration) is done before data collection procedure. 
 
-![data-collection](files/vision-data-collection.png)
+![data-collection](../files/vision-data-collection.png)
 *Data collection procedure for an insertion placement task*
 
 ## LEARN: Model Training
 
 A trained model is used for estimating corss-pose between action and achor pointclouds. Details for the model can be found here: [TAX-Pose Paper](https://arxiv.org/pdf/2211.09325)
 
-![taxpose](files/vision-taxpose-overview.gif)
+![taxpose](../files/vision-taxpose-overview.gif)
 
 Data input for training: 
 
@@ -30,8 +30,8 @@ Data input for training:
 
 | Waterproof Connector | D-Sub Connector |
 |----------------------| ----------------|
-| ![wp-pcd](files/wp.gif) | ![dsub-pcd](files/dsub.gif) |
-| ![wp-image](files/wp.png) | ![dsub-image](files/dsub.jpg) |
+| ![wp-pcd](../files/wp.gif) | ![dsub-pcd](../files/dsub.gif) |
+| ![wp-image](../files/wp.png) | ![dsub-image](../files/dsub.jpg) |
 
 
 ## EXECUTE: Model Inference
@@ -39,5 +39,5 @@ Data input for training:
 Execution is similar to the data collection process, except robot move autonomously using saved poses from earlier and uses trained model to infer right target pose for action object.
 
 Here is a flow diagram of execution steps involved for insertion placement task:
-![vision-execute](files/vision-execute.png)
+![vision-execute](../files/vision-execute.png)
 

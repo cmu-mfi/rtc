@@ -2,6 +2,8 @@
 
 ![mezzlab](files/mezzlab.jpg)
 
+Robotics Training Center (RTC) is a project funded by [NIST](https://www.nist.gov/) in 2023-2024. The project was proposed by [Carnegie Mellon University](https://www.cmu.edu/) in collaboration with [ARM Institute](https://arminstitute.org/)
+
 The center includes a set of robots repeatedly performing manufacturing and assembly manipulation tasks with an adjustable level of variation. The underlying software stack is modular such that individual software components can be easily switched with a data-driven model. To achieve the vision, the project consisted of five core thrusts:
 
 1. **Self-supervised vision-based object manipulation**
@@ -22,7 +24,7 @@ The website is documentation of the robotic system which is result of first thre
 |---|---|
 |LEGO block assembly|NIST task board #1 (insertion tasks)|
 
-* To create an autonomy pipeline that can be transferred to the ARM Institute for generalization across the robots that they have, and for extension to other forms of manufacturing tasks, as appropriate
+* To create an autonomy pipeline that can be transferred to the [ARM Institute](https://arminstitute.org/) for generalization across the robots that they have, and for extension to other forms of manufacturing tasks, as appropriate
 		
 <!-- ### Environment
 There are two environments of reference in this project:
