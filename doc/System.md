@@ -20,7 +20,7 @@ The diagram below shows how various equipment, sensors and virtual machines are 
 
 |![hardware](files/system-hardware.png) <br> ![mezzlab](files/mezzlab.jpg) <br><br> <center>System Implementation at Mezzanine Lab</center>|
 |:--:|
-| ![hardware-proposed]() <br><br> <center>Proposed Simplified Setup</center>|
+| ![hardware-proposed](files/system-hardware-simple.png) <br><br> <center>Proposed Simplified Setup</center>|
 
 
 ### BOM

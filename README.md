@@ -13,12 +13,46 @@ target representation.
 
 _Sphinx_ installation documentation is available [here][url03].
 
+Below are TLDR steps to build html pages locally.
+
+**Install Dependencies**
+```
+git clone https://github.com/cmu-mfi/rtc.git
+cd ./rtc
+python -m venv ./.venv
+
+# Linux/macOS Terminal
+source .venv/bin/activate
+
+# Windows CMD
+call .venv\Scripts\activate.bat
+
+pip install -U sphinx sphinx_rtd_theme myst_parser
+```
+
+**Build doc**
+```
+cd ./rtc
+
+# Linux/macOS Terminal
+source .venv/bin/activate
+
+# Windows CMD
+call .venv\Scripts\activate.bat
+
+cd ./doc
+make html
+```
+The HTML pages are in _build/html.  
+
+---
+
+### Troubleshooting macOS Sonoma (Version 14.5)
+
 The instructions are good at getting started, but they do not explain the whole
 process for a particular version of operating system (OS). This section is to
 document some of the OS-specific experiences people have in getting started and
 trying to build this repository.
-
-### macOS Sonoma (Version 14.5)
 
 #### Step 1. brew install sphinx-doc
 

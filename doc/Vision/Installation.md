@@ -1,6 +1,6 @@
 # Vision System - Installation
 
-![vision-setup](../files/vision-setup.png)
+![vision-setup](../files/vision/vision-setup.png)
 
 ```{contents}
 ```
@@ -12,6 +12,7 @@
 *insert BOM link*
 
 *insert diagram of how things need to be connected*
+![vision-system](../files/vision/vision-system.png)
 
 *insert few key notes*
 

@@ -5,14 +5,14 @@ In this thrust, we explore the use of vibrotactile data for monitoring manufactu
 
 ```{contents}
 ```
-## Overview
-
+---
 ### TEACH: Data Collection
 
 ![flow_chart](files/vt-datacollection.png)
 
 ![data-viz](files/vibrotactile_data_visualization.gif)
 
+---
 ### LEARN: Model Training
 
 For the vibrotactile pick/place skills, models are required for following:
@@ -22,6 +22,7 @@ For the vibrotactile pick/place skills, models are required for following:
 |audio-based outcome detection| audio spectogram images (1s) |
 |audio-based termination | audio spectogram images (0.1s) |
 
+---
 ### EXECUTE: Model Inference
 
 ![execution](files/vt-execution.png)
