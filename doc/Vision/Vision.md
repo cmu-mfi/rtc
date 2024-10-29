@@ -5,8 +5,10 @@ can later be fine-tuned on data for a particular task of interest.
 
 The tasks involve placing one object (which we call the “action” object) at a semantically meaningful location relative to another object (which we call the “anchor” object)
 
+![action-anchor](../files/vision/action_anchor.png)
 
 ```{contents}
+:depth: 2
 ```
 ---
 
@@ -17,7 +19,7 @@ The data collection procedure involves manually jogging the robot to do an assem
 It is assumed that the system setup (like, camera calibration) is done before data collection procedure. 
 
 ![data-collection](../files/vision/vision-data-collection.png)
-*Data collection procedure for an insertion placement task*
+*<center>Data collection procedure for an insertion placement task</center>*
 
 <iframe width="704" height="396" src="https://www.youtube.com/embed/yKXflZ4BOYs" title="Vision Based Insertion - Training Procedure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
@@ -29,9 +31,9 @@ A trained model is used for estimating corss-pose between action and achor point
 
 ![taxpose](../files/vision/vision-taxpose-overview.gif)
 
-Data input for training: 
+### Data input for training: 
 
-> *Action pointclouds at the target position inserted in the Anchor pointcloud*
+Action pointclouds at the target position inserted in the Anchor pointclouds.
 
 | Waterproof Connector | D-Sub Connector |
 |----------------------| ----------------|

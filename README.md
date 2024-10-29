@@ -1,4 +1,4 @@
-# README for the Robotics Training Center (RTC) Git Repository
+# Robotics Training Center (RTC) Webpage Documentation
 
 This documentation is written in [Markdown][url01].
 
@@ -32,7 +32,7 @@ pip install -U sphinx sphinx_rtd_theme myst_parser
 
 **Build doc**
 ```
-cd ./rtc
+cd rtc
 
 # Linux/macOS Terminal
 source .venv/bin/activate
@@ -40,10 +40,11 @@ source .venv/bin/activate
 # Windows CMD
 call .venv\Scripts\activate.bat
 
-cd ./doc
+cd doc
 make html
 ```
-The HTML pages are in _build/html.  
+
+The HTML pages are in `doc/_build/html`.  
 
 ---
 

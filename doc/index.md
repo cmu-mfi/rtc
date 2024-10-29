@@ -4,7 +4,7 @@
 
 Robotics Training Center (RTC) is a project funded by [NIST](https://www.nist.gov/) in 2023-2024. The project was proposed by [Carnegie Mellon University](https://www.cmu.edu/) in collaboration with [ARM Institute](https://arminstitute.org/)
 
-The center includes a set of robots repeatedly performing manufacturing and assembly manipulation tasks with an adjustable level of variation. The underlying software stack is modular such that individual software components can be easily switched with a data-driven model. To achieve the vision, the project consisted of five core thrusts:
+The center includes a set of robots repeatedly performing manufacturing and assembly manipulation tasks with an adjustable level of variation. To achieve the vision, the project consisted of five core thrusts:
 
 1. **Self-supervised vision-based object manipulation**
 2. **Vibrotactile sensing for monitoring manufacturing processes**
