@@ -16,6 +16,7 @@ release = '1.0'
 
 extensions = [
     'myst_parser',
+    'sphinx_copybutton'
 ]
 
 templates_path = ['_templates']
