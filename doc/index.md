@@ -80,6 +80,6 @@ Vibrotactile/Tutorial.md
 
 DDB/DDB.md
 DDB/Installation.md
-DDB/Tutorial.md
+<!-- DDB/Tutorial.md -->
 
 ```

@@ -3,7 +3,7 @@
 ```{contents}
 ```
 ## Overview
-![ddb](../files/DigitalDataBackbone.png)
+![ddb](../files/ddb/DigitalDataBackbone.png)
 
 ### Layers
 
