@@ -78,16 +78,61 @@ Relevant repository:\
 <br>
 
 5. **Step 5: TEACH - Collect training data**:
-    - ...
+    - Use `collect_demonstrations()` method in `TeachPlace` class to collect training data. `place_teach.py` script can be used to run the teach script.
+        ```shell
+        # Activate the virtual environment, if not already done.
+        $ source venv/bin/activate
+
+        # Run the teach script
+        $ python scripts/place_teach.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
+        ```
+        > A bash script can also be created to run the teach script for different connectors. See *.sh files in the `scripts/` directory for examples.
+    - Data is collected in the `data/demonstrations/<dd-mm>` directory. Review the depth images of action and anchor objects to make sure the data is collected correctly. Adjust the parameters in `training` section in `place_object.yaml` file to get good quality data.
+    - Use `scripts/view_ply.py` script to visualize the point cloud data.
+<br><br>
 
 6. **Step 6: LEARN - Train the model**:
-    - ...
+    - **Data Preparation**. `prepare_data()` method in `LearnPlace` class is used to prepare the training data. `place_learn.py` script shows how to execute the method. <br>
+        Review `training` parameter in `place_object.yaml` file to make sure the data is prepared correctly.
+        ```shell
+        # Activate the virtual environment, if not already done.
+        $ source venv/bin/activate
+
+        # Run the learn script
+        $ python scripts/place_learn.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
+        ```
+    - **Training the Model**. 
+        - Review instructions in `model/README.md` to configure training parameters.
+        - Run the training script.
+        ```shell
+        # (optional) Run the model training in a terminal multiplexer like tmux or screen.
+        tmux new -s vision-training
+        
+        # Activate the virtual environment, if not already done.
+        $ source venv/bin/activate
+
+        # Run the training script
+        $ cd model/taxpose
+        $ CUDA_VISIBLE_DEVICES=1 python scripts/train_residual_flow.py --config-name <path/to/taxpose/training/config>
+        ``` 
+        - Training will take a few hours to complete. Monitor the training progress on WANDB dashboard.
+        - Update the `training.model_config` parameter in the `place_object.yaml` file with the `<path/to/taxpose/training/config>`
+        - Once the training is complete, save the location of the trained model in the `models/taxpose/configs/checkpoints` directory.
+<br><br>
 
 7. **Step 7: EXECUTE - Run the vision system**:
-    - ...
+    - Review the `execution` parameter in the `place_object.yaml` file.
+    - Use `execute()` method in `ExecutePlace` class to run the vision system. `place_execute.py` script can be used to run the execute script.
+    ```shell
+    # Activate the virtual environment, if not already done.
+    $ source venv/bin/activate
+
+    # Run the execute script
+    $ python scripts/place_execute.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
+    ```
 
 8. **Step 8: Validate and Retrain**:
-    - ...
-    - ...
-    - Repeat 4-5-6 steps as needed.
-    
+    - To validate the system use `validate_execute()` method in `ExecutePlace` class.
+    - Run it a few times to get a sample set of data.
+    - Use the `notebooks/visualize_pcd.ipynb` notebook to calculate the error and visualize the point cloud data for the action and anchor objects.
+    - If the error is high, then retrain the model by repeating steps 5-6-7.    
