@@ -35,14 +35,14 @@ Relevant repository:\
 
 ## Installation Steps
 
-1. **Step 1: Device Interfaces**:
+1. **Step 1: Device Interfaces**
     - Follow the installation instructions in the respective repositories.
     - Make sure the devices are connected and working properly.
     - Pre-requisite for the vision system is two cameras, one robot arm, and one gripper.
 
     > Note: Notice that the relevant repositories in the device interfaces are all ROS packages. If using ROS-wrapper device interface, then they need to be started seperately. Otherwise, direct device SDK based interfaces can be directly implemented in `camera/` and `robot/` modules of the vision system. For example, 'Orbbec' camera SDK interface is directly implemented in `camera/orbbec` module and 'Robotiq' gripper SDK interface is directly implemented in `robot/robotiq` module.
 
-2. **Step 2: Systems Check**:
+2. **Step 2: Systems Check**
     - Setup the python virtual environment and install the required packages.
         ```shell
         $ python3 -m venv venv
@@ -53,7 +53,7 @@ Relevant repository:\
     - If all tests pass, then the devices are ready for the vision system.
 <br><br>
 
-3. **Step 3: Device Setup: Camera-Robot Calibration**:
+3. **Step 3: Device Setup: Camera-Robot Calibration**
     - Review the script `gripper_camera_calibration.py` in the `scripts/` directory to make sure it uses the right device interfaces.
     - Run the script to calibrate the camera and robot arm.
         ```shell
@@ -66,7 +66,7 @@ Relevant repository:\
     - Calibration will be saved in the `data/` directory.
 <br><br>
 
-4. **Step 4: Create Config Files**:
+4. **Step 4: Create Config Files**
     ```shell
     # Create directory for training data to be stored
     $ mkdir -p data/demonstrations/<dd-mm>
@@ -77,7 +77,7 @@ Relevant repository:\
     Update the `place_object.yaml` config file with your setup parameters.   
 <br>
 
-5. **Step 5: TEACH - Collect training data**:
+5. **Step 5: TEACH - Collect training data**
     - Use `collect_demonstrations()` method in `TeachPlace` class to collect training data. `place_teach.py` script can be used to run the teach script.
         ```shell
         # Activate the virtual environment, if not already done.
@@ -91,7 +91,7 @@ Relevant repository:\
     - Use `scripts/view_ply.py` script to visualize the point cloud data.
 <br><br>
 
-6. **Step 6: LEARN - Train the model**:
+6. **Step 6: LEARN - Train the model**
     - **Data Preparation**. `prepare_data()` method in `LearnPlace` class is used to prepare the training data. `place_learn.py` script shows how to execute the method. <br>
         Review `training` parameter in `place_object.yaml` file to make sure the data is prepared correctly.
         ```shell
@@ -120,7 +120,7 @@ Relevant repository:\
         - Once the training is complete, save the location of the trained model in the `models/taxpose/configs/checkpoints` directory.
 <br><br>
 
-7. **Step 7: EXECUTE - Run the vision system**:
+7. **Step 7: EXECUTE - Run the vision system**
     - Review the `execution` parameter in the `place_object.yaml` file.
     - Use `execute()` method in `ExecutePlace` class to run the vision system. `place_execute.py` script can be used to run the execute script.
     ```shell

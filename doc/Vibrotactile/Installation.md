@@ -22,8 +22,48 @@
 
 ### Software
 
-*repositories and installation*
+There are two levels of software installation required for the vision system.
+
+<a href="https://github.com/cmu-mfi/vibro_tactile_toolbox" class="inline-button"><i class="fab fa-github"></i>vibro_tactile_toolbox</a>
+
+**1. Device Interfaces**\
+This includes the installation of the software required to interface with the hardware components like robots, cameras, grippers, etc.
+
+ROS Nodes for the devices can be launched using docker-compose.yml in `docker/` directory. It will need modification if using other hardware, like a different camera or force torque sensor.
+
+**2. Vibrotactile System**\
+This includes the installation of the software required to run the vibrotactile system which involves teach, learn and execute tasks described in the [overview](Vibrotactile.md) section.
 
 ## Installation Steps
 
-*calibration and all*
+1. **Step 1: Device Interfaces**
+    - Make sure the devices are connected and working properly.
+    - Pre-requisite for the vision system is one robot arm, 2-4 contact microphones, one force torque sensor, once side camera and one gripper.
+
+        ```shell
+
+        $ cd docker
+        $ docker compose up --build
+
+        ```
+    > Note: If using different hardware, modify the `docker-compose.yml` file accordingly.
+<br>
+
+2. **Step 2: Systems Check**
+
+    - Run test docker compose ....
+    ....
+
+3. **Step 3: Create Config Files**
+
+    - `<create / modify config files>`
+
+
+4. **Step 4: TEACH - Collect training data**
+    ...
+
+5. **Step 5: LEARN - Train the models**
+    ...
+
+6. **Step 6: EXECUTE - Validate the system**
+    ...
