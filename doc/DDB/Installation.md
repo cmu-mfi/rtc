@@ -42,18 +42,20 @@ This section will provide a step-by-step guide to setting up the Digital Data Ba
 
 * Create a SQL database in a SQL server
 
-    ...
+    <a>https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database?view=sql-server-ver16</a>
 
 
-* Create the following tables by executing the scripts below:
-
-    ...
+* Create the following tables and stored procedures by executing the scripts below:\
+<a href='https://github.com/cmu-mfi/dbb_interfaces/blob/main/retrieval/ProjectList.sql'>ProjectList<a></br>
+<a href='https://github.com/cmu-mfi/dbb_interfaces/blob/main/retrieval/ExperimentList.sql'>ExperimentList</a></br></br>
 
 
 * **Storage Connector**
     * SQL Store Procedures
         Create stored procedure by executing the scripts below:\
-        ...
+        <a href='https://github.com/cmu-mfi/dbb_interfaces/blob/main/from_mqtt/mqtt_sql/InsertXmlData.sql'>InsertXmlData</a></br></br>
+        
+        
     * XML to SQL \
         We use SQL to store XML data. A python script is used in `from_mqtt/mqtt_sql/XMLtoSQL` folder. The script reads the XML file and sends it to the stored procedure.
 
