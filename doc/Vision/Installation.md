@@ -51,18 +51,33 @@ Relevant repository:\
     ```
 - Run the `test.py` script in the `camera/` and `robot/` modules to check the device interfaces.
 - If all tests pass, then the devices are ready for the vision system.
+- Use the venv for all the following steps. `source venv/bin/activate`
 
 **Step 3: Device Setup: Camera-Robot Calibration**
-- Review the script `gripper_camera_calibration.py` in the `scripts/` directory to make sure it uses the right device interfaces.
-- Run the script to calibrate the camera and robot arm.
-    ```shell
-    # Activate the virtual environment, if not already done.
-    $ source venv/bin/activate
+- There are two cameras to do the calibration: one fixed to ground (eye-on-base), and the other mounted on the robot arm (eye-on-arm).
 
-    # Run the calibration script
-    $ python scripts/gripper_camera_calibration.py
-    ```
-- Calibration will be saved in the `data/` directory.
+- **eye-on-base**:
+    - Mount the camera on a fixed position.
+    - [Print](https://chev.me/arucogen/) and fix an ArUco marker on the robot arm end effector.
+    - Review the script `scripts/robot_camera_calibration.py` to make sure it uses the right device interfaces. Make sure `camera`, `robot`, and `marker` objects are rightly initialized.
+    - Run the script to calibrate the camera and robot arm.
+        ```shell
+        # Run the calibration script
+        $ python scripts/robot_camera_calibration.py
+        ```
+    - Calibration data and results will be saved in scripts directory. Move them to a desired directory, like `data/calibration/`.
+
+- **eye-on-arm**:
+    - Pre-requisite: one calibrated camera on base.
+    - Mount the camera on a the robot arm
+    - [Print](https://chev.me/arucogen/) and put the AruCo marker in the scene such that both cameras (scene-camera and in-hand camera) can see the marker.
+    - Review the script `scripts/gripper_camera_calibration.py` to make sure it uses the right device interfaces. Make sure `scene_camera`, `inhand_camera`, `robot`, and `marker` objects are rightly initialized.
+    - Run the script to calibrate the camera and robot arm.
+        ```shell
+        # Run the calibration script
+        $ python scripts/gripper_camera_calibration.py
+        ```
+    - Calibration data and results will be saved in scripts directory. Move them to a desired directory, like `data/calibration/`.
 
 **Step 4: Create Config Files**
 * Update the `place_object.yaml` config file with your setup parameters.   
@@ -71,7 +86,7 @@ Relevant repository:\
     $ mkdir -p data/demonstrations/<dd-mm>
 
     # Copy a config file from demo-example
-    $ cp demo-exmaple/demonstrations/08-14-wp/place_object.yaml data/demonstrations/<dd-mm>/
+    $ cp demo-example/demonstrations/08-14-wp/place_object.yaml data/demonstrations/<dd-mm>/
     ```
 
 **Step 5: TEACH - Collect training data**
