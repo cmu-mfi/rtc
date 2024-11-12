@@ -56,17 +56,24 @@ This includes the installation of the software required to run the vibrotactile 
 
 
         ```shell
-        $ cd docker
+        $ cd <some directory> 
+        $ git clone https://github.com/cmu-mfi/vibro_tactile_toolbox.git 
+        $ cd vibro_tactile_toolbox/docker
         $ bash build_docker.sh
-        $ TYPE=nist NAMESPACE=<insert your robot namespace here> docker compose up --build
+        $ TYPE=nist NAMESPACE=<insert your robot namespace here> docker compose up
         ```
     > Note: If using different hardware, modify the `docker-compose.yml` file accordingly.
 <br>
 
 2. **Step 2: Systems Check**
 
-    - Run test docker compose ....
-    ....
+    - Run system check test
+        ```
+        $ cd /path/to/vibro_tactile_toolbox/docker
+        $ ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
+        $ cd /home/path/to/vibro_tactile_toolbox
+        $ python scripts/test
+        ```
 
 3. **Step 3: Create Config Files**
 
