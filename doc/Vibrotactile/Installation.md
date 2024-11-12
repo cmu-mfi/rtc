@@ -31,12 +31,14 @@ The figure below shows the experiment setup. The list of hardware components can
 
 There are two levels of software installation required for the vibrotactile system.
 
+Relevant repositories:\
+<a href="https://github.com/cmu-mfi/motoman_ros1" class="inline-button"><i class="fab fa-github"></i>motoman_ros1</a>
 <a href="https://github.com/cmu-mfi/vibro_tactile_toolbox" class="inline-button"><i class="fab fa-github"></i>vibro_tactile_toolbox</a>
 
 **1. Device Interfaces**\
 This includes the installation of the software required to interface with the hardware components like robots, cameras, grippers, etc.
 
-ROS Nodes for the devices can be launched using docker-compose.yml in `docker/` directory. It will need modification if using other hardware, like a different camera or force torque sensor.
+ROS Nodes for the devices can be launched using docker-compose.yml in `docker/` directory. It will need modification if using other hardware, like different cameras.
 
 **2. Vibrotactile System**\
 This includes the installation of the software required to run the vibrotactile system which involves teach, learn and execute tasks described in the [overview](Vibrotactile.md) section.
@@ -45,13 +47,18 @@ This includes the installation of the software required to run the vibrotactile 
 
 1. **Step 1: Device Interfaces**
     - Make sure the devices are connected and working properly.
-    - Pre-requisite for the vision system is one robot arm, 2-4 contact microphones, one force torque sensor, once side camera and one gripper.
+    - Pre-requisite for the vibrotactile system is one robot arm, 2-4 contact microphones, one force torque sensor, one side camera and one gripper.
+    - Requires adding a couple of lines to your `~/.bashrc` file with the proper ip addresses.
+         ```shell
+        $ export ROS_IP=<insert your computer ip>
+        $ export ROS_MASTER_URI=http://<insert the rosmaster computer ip>:11311
+        ```
+
 
         ```shell
-
         $ cd docker
-        $ docker compose up --build
-
+        $ bash build_docker.sh
+        $ TYPE=nist NAMESPACE=<insert your robot namespace here> docker compose up --build
         ```
     > Note: If using different hardware, modify the `docker-compose.yml` file accordingly.
 <br>
