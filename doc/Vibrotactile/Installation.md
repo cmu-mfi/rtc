@@ -240,7 +240,7 @@ This includes the installation of the software required to run the vibrotactile 
         ROBOT_NAME="<robot namespace>"
         ```
     3. Training the outcome and terminator models
-        - To train the audio outcome and terminator models, you will need to modify the script in `convenience_scripts/train_outcome_and_terminator_models.sh`.
+        - To train the audio outcome and terminator models, you will need to modify the script in `convenience_scripts/train_outcome_and_terminator_models.sh` and `convenience_scripts/test_trained_outcome_and_terminator_models.sh`. 
         - Basically TYPES represents the type of connector you have collected data with and CHANNELS represents the audio channels you want to use. For example, training all of the audio channels for ethernet would result in:
         ```
         TYPES=("ethernet")
@@ -264,6 +264,7 @@ This includes the installation of the software required to run the vibrotactile 
         bash convenience_scripts/make_nist_dataset.sh
         bash convenience_scripts/make_lego_dataset.sh
         bash convenience_scripts/train_outcome_and_terminator_models.sh
+        bash convenience_scripts/test_trained_outcome_and_terminator_models.sh
         ```
     5. Once the models have been trained, move them out of the docker to the models folder in `~/Documents/vibro_tactile_toolbox`:
         ```
