@@ -167,27 +167,127 @@ This includes the installation of the software required to run the vibrotactile 
         ```
     - Keep and eye on the robot and hold onto the connector when the robot releases it. If the force torque predictions are incorrect, you will need to adjust the `force_thresholds` in `config/nist.yaml`.
     2. LEGO
-    - For the lego task, we will be assuming that the
-    - If the vibro_tactile_toolbox_container is already running, you can just create a new terminal using the command:
+    - For the lego task, we will be assuming that the lego board is fixed. You will need to register multiple positions on the board within a region. 
+    - First you will need to download my trained lego detector model from [here](https://drive.google.com/file/d/1SGcNrUVqfxy641kZhhMAM2H9WvDHTupR/view?usp=drive_link). Then you will move it into a models folder in vibro_tactile_toolbox.
         ```
+        cd ~/Documents/vibro_tactile_toolbox
+        mkdir models
+        mv ~/Downloads/lego_model.pth models/
+        ```
+    - Next you will need to make sure the docker containers are closed and start the docker compose up with the lego flag:
+        ```shell
         cd ~/Documents/vibro_tactile_toolbox/docker
-        bash new_terminal.sh
+        TYPE=lego NAMESPACE=<robot namespace> docker compose up --build
         ```
-    - Otherwise you can start the vibro_tactile_toolbox_container with the command:
+    - Next you will need to start the vibro_tactile_toolbox_container with the command:
         ```
         cd ~/Documents/vibro_tactile_toolbox/docker 
         ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
         ```
-    - For the lego pose, use the following command:
+    - Then, you should remove all of the previously taught locations in the `/ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world/` folder using the following command:
         ```
-        roslaunch vibro_tactile_toolbox save_lego_pose.launch namespace:=<robot namespace> 
+        rm -rf /ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world/*
         ```
-    - The lego pose will be in the file `lego_world.tf`.
-
-    cp lego_world.tf /home/path/to/vibro_tactile_toolbox/transforms/
+    - To register a lego pose, use the teach pendant to jog the robot so that it is pushing a 2x1 lego block down onto the lego board. Figure out the peg's x,y location by using the top left peg of the board as 0,0 and decreasing x towards the robot and increasing the y location from left to right. Use the following command to save the lego pose:
+        ```
+        roslaunch vibro_tactile_toolbox save_lego_pose.launch namespace:=<robot namespace> x:=<current x position> y:=<current y position>
+        ```
+    - The lego pose will then be saved in the folder `/ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world/` with the file name `lego_world_<current x position>_<current_y_position>.tf`.
+    - Once you have taught around 8 locations around the board, you will need to move all of the transforms outside of the docker using the following commands:
+        ```
+        rm -rf /home/Documents/vibro_tactile_toolbox/transforms/T_lego_world/
+        cp -r /ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world /home/Documents/vibro_tactile_toolbox/transforms/
+        ```
+    - Next, you can take a look at the launch file `collect_lego_audio_data.launch` inside of `~/Documents/vibro_tactile_toolbox/launch` and make any desired modifications such as the number of trials to collect.
+    - Afterwards, it is very important to close all the previous docker containers and then run the following command in a terminal:
+        ```
+        cd ~/Documents/vibro_tactile_toolbox/docker
+        TYPE=lego NAMESPACE=<robot namespace> docker compose up --build
+        ```
+    - Then once the docker containers have started, run the check again:
+        ```
+        cd ~/Documents/vibro_tactile_toolbox/docker
+        ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
+        cd /home/Documents/vibro_tactile_toolbox
+        python tests/test_system.py -t lego -n <robot namespace>
+        ```
+    - Finally to start the data collection, you will run:
+        ```
+        roslaunch vibro_tactile_toolbox collect_lego_audio_data.launch namespace:=<robot_namespace> block_type:=<your current block type>
+        ```
+    - Keep and eye on the robot and stop the data collection script if the lego flies off the board. If the force torque predictions are incorrect, you will need to adjust the `force_thresholds` in `config/lego.yaml`. If the lego vision predictions are incorrect, you will need to adjust the top_bbox and bot_bbox in the `lego_detector` in `config/lego.yaml`.
 
 5. **Step 5: LEARN - Train the models**
-    ...
+    - If you want to download sample data, you can download them [here](https://drive.google.com/drive/folders/1_JnpDF9Mceyzx34Hz1qKBsjdGAOaGSJM?usp=drive_link) and unzip them into your Documents/vibro_tactile_data folder.
+    1. NIST Connectors
+        - To create the NIST dataset, you will need to modify the script in `convenience_scripts/make_nist_dataset.sh`.
+        - Basically VOLS represents the volumes you have collected data at. CONNECTORS represents the connectors that you have collected data with. If you only collected `ethernet` you would only have "ethernet" in the (). VELS represents the velocities that you have collected data at. TRAIN_VS_TEST represents whether you have collected test data yet or not. If you haven't you would just have "vel_" in there. Finally ROBOT_NAME is the robot's namespace. For example, you could modify it to be:
+        ```
+        VOLS=(75)
+        CONNECTORS=("ethernet")
+        VELS=(0.01)
+        TRAIN_VS_TEST=("vel_")
+        ROBOT_NAME="<robot namespace>"
+        ```
+    2. LEGO
+        - To create the Lego dataset, you will need to modify the script in `convenience_scripts/make_lego_dataset.sh`.
+        - Basically VOLS represents the volumes you have collected data at. BRICKS represents the brick types that you have collected data with. If you only collected `2x1` you would only have "2x1" in the (). VELS represents the velocities that you have collected data at. TRAIN_VS_TEST represents whether you have collected test data yet or not. If you haven't you would just have "vel_" in there. Finally ROBOT_NAME is the robot's namespace. For example, you could modify it to be:
+        ```
+        VOLS=(75)
+        BRICKS=("2x1") 
+        VELS=(0.01)
+        TRAIN_VS_TEST=("vel_")
+        ROBOT_NAME="<robot namespace>"
+        ```
+    3. Training the outcome and terminator models
+        - To train the audio outcome and terminator models, you will need to modify the script in `convenience_scripts/train_outcome_and_terminator_models.sh`.
+        - Basically TYPES represents the type of connector you have collected data with and CHANNELS represents the audio channels you want to use. For example, training all of the audio channels for ethernet would result in:
+        ```
+        TYPES=("ethernet")
+        CHANNELS=("0,1,2,3")
+        ```
+        - On the other hand training all of the audio channels for lego would result in:
+        ```
+        TYPES=("lego")
+        CHANNELS=("0,1,2,3")
+        ```
+    4. After you have made the changes to the `convenience_scripts", you will need to again run:
+        ```
+        cd ~/Documents/vibro_tactile_toolbox/docker
+        TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
+        ```
+        - Then once the dockers have been built, you will run:
+        ```
+        cd ~/Documents/vibro_tactile_toolbox/docker
+        ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
+        roscd vibro_tactile_toolbox
+        bash convenience_scripts/make_nist_dataset.sh
+        bash convenience_scripts/make_lego_dataset.sh
+        bash convenience_scripts/train_outcome_and_terminator_models.sh
+        ```
+    5. Once the models have been trained, move them out of the docker to the models folder in `~/Documents/vibro_tactile_toolbox`:
+        ```
+        cp -r /ros1_ws/src/vibro_tactile_toolbox/models/* /home/Documents/vibro_tactile_toolbox/models/
+        ```
 
 6. **Step 6: EXECUTE - Validate the system**
-    ...
+    1. To download already pretrained models, you can download them [here](https://drive.google.com/drive/folders/1QPUI7IPVllI9K_c3E34HhZLIIfjEob0-?usp=drive_link) and extract them into the `~/Documents/vibro_tactile_toolbox/models` folder.
+    2. Next you will need to take a look at the `test_nist_audio_outcome.launch` and `test_lego_audio_outcome.launch` files and make changes depending on your preferences.
+    3. Finally you will need to start the docker container using the following command for ethernet:
+        ```
+        cd ~/Documents/vibro_tactile_toolbox/docker
+        TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
+        ```
+    4. Finally to start the nist evaluation, you will run:
+        ```
+        roslaunch vibro_tactile_toolbox test_nist_audio_outcome.launch namespace:=<robot_namespace> connector_type:=ethernet
+        ```
+    5. For lego you will instead run:
+        ```
+        cd ~/Documents/vibro_tactile_toolbox/docker
+        TYPE=lego NAMESPACE=<robot namespace> docker compose up --build
+        ```
+        and
+        ```
+        roslaunch vibro_tactile_toolbox test_lego_audio_outcome.launch namespace:=<robot_namespace> block_type:=<your current block type>
+        ```
