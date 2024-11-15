@@ -6,14 +6,22 @@ In this thrust, we explore the use of vibrotactile data for monitoring manufactu
 ```{contents}
 ```
 ---
-### TEACH: Data Collection
+## TEACH: Data Collection
 
-![flow_chart](files/vt-datacollection.png)
+### NIST Data Collection
 
-![data-viz](files/vibrotactile_data_visualization.gif)
+![NIST Data Collection Flow Diagram](../files/vbt/NIST_Data_Collection_Flow_Diagram.png)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iAEQY6bjOss?si=rLmF_a6JPDQohMNW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### LEGO Data Collection
+
+![LEGO Data Collection Flow Diagram](../files/vbt/LEGO_Data_Collection_Flow_Diagram.png)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-Z85p3ztPq4?si=kySVBApxR_s5e8tO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
-### LEARN: Model Training
+## LEARN: Model Training
 
 For the vibrotactile pick/place skills, models are required for following:
 
@@ -23,6 +31,6 @@ For the vibrotactile pick/place skills, models are required for following:
 |audio-based termination | audio spectogram images (0.1s) |
 
 ---
-### EXECUTE: Model Inference
+## EXECUTE: Model Inference
 
 ![execution](files/vt-execution.png)
