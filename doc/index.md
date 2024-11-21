@@ -62,7 +62,6 @@ Contact.md
 
 Vision/Vision.md
 Vision/Installation.md
-Vision/Tutorial.md
 ``` 
 
 ```{toctree}
@@ -71,7 +70,6 @@ Vision/Tutorial.md
 
 Vibrotactile/Vibrotactile.md
 Vibrotactile/Installation.md
-Vibrotactile/Tutorial.md
 ```
 
 ```{toctree}

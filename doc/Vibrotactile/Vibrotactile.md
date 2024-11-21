@@ -23,12 +23,17 @@ In this thrust, we explore the use of vibrotactile data for monitoring manufactu
 ---
 ## LEARN: Model Training
 
-For the vibrotactile pick/place skills, models are required for following:
+For the vibrotactile pick/place skills, we train models for Outcome Detection and Termination Detection:
 
 | Skill | Data Inputs |
 |-------|-------------|
-|audio-based outcome detection| audio spectogram images (1s) |
-|audio-based termination | audio spectogram images (0.1s) |
+|Outcome Detection| ![outcome_mel_spectrogram](../files/vbt/outcome_mel_spectrogram.png) Audio Mel Spectogram Images (1s) |
+|Termination Detection | ![terminator_mel_spectrogram](../files/vbt/terminator_mel_spectrogram.png) Audio Mel Spectogram Images (0.5s) |
+
+The Vibrotactile model is shown below:
+![vibrotactile_network_diagram](../files/vbt/vibrotactile_network_diagram.png)
+
+Where the model takes in 4 channels of their respective mel spectrograms and outputs either success or fail for outcome detection or nominal or terminate for termination detection.
 
 ---
 ## EXECUTE: Model Inference
