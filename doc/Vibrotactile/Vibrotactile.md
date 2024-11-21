@@ -33,4 +33,9 @@ For the vibrotactile pick/place skills, models are required for following:
 ---
 ## EXECUTE: Model Inference
 
-![execution](files/vt-execution.png)
+### Waterproof Online Inference
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RwdWVVD-_tY?si=bzhpZcg2r2unOjeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### D-SUB Online Inference
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mD1Y2qX-adI?si=8_IySdzMl4M8ICdX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -47,6 +47,7 @@ This includes the installation of the software required to run the vibrotactile 
 
 1. **Step 1: Device Interfaces**
     - Make sure the devices are connected and working properly.
+    - Make sure you connect a monitor to the computer that is connected to the UMC404HD Audio Interface and log into Ubuntu once before following the instructions below.
     - Pre-requisite for the vibrotactile system is one robot arm, 2-4 contact microphones, one force torque sensor, one side camera and one gripper.
     - You will need to add a couple of lines to your `~/.bashrc` file with the proper ip addresses.
          ```shell
