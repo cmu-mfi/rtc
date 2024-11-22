@@ -4,28 +4,27 @@
 
 The Robotics Training Center (RTC) is a project funded by [NIST](https://www.nist.gov/) in 2023-2024. The project was proposed by [Carnegie Mellon University](https://www.cmu.edu/) in collaboration with the [ARM Institute](https://arminstitute.org/)
 
-The center includes a set of robots repeatedly performing manufacturing and assembly manipulation tasks with an adjustable level of variation. To achieve the vision, the project consisted of five core thrusts:
+The center includes a set of robots performing manufacturing and assembly manipulation tasks with an adjustable level of variation. To achieve the vision, the project consisted of five core thrusts:
 
 1. **Self-supervised vision-based object manipulation**
 2. **Vibrotactile sensing for monitoring manufacturing processes**
 3. **Integration and development of a digital backbone for large-scale data collection and processing in robotics training**
-4. Identification of technology adoption incentive mechanisms for manufacturing ecosystems
-5. Development of strategies for the transition of the above technologies to the ARM Institute ecosystem
+4. Identifying incentives for the adoption of the technology in manufacturing environments
+5. Developing strategies for the transition of the above technologies to the ARM Institute
 
-The website is documentation of the robotic system which is a result of the first three thrusts.
+This website is a documentation of the robotic system which is a result of the first three thrusts.
 
 *<insert license and collaboration medium>*
 
 ### Purpose
 
-* To create robotic skills that can be combined with each other to enable a robot to perform a manufacturing task
-* For manufacturing tasks, we focus on the following
+* Create robotic skills that can be combined together to enable a robot to perform a manufacturing task. We focused on the following:
 
 | ![lego](files/lego-small.png) | ![nist](files/nist-1-small.jpg)      |
 | ----------------------------- | ------------------------------------ |
 | LEGO block assembly           | NIST task board #1 (insertion tasks) |
 
-* To create an autonomy pipeline that can be transferred to the [ARM Institute](https://arminstitute.org/) for generalization across the robots that they have, and for extension to other forms of manufacturing tasks, as appropriate
+* Create an autonomy pipeline that can be transferred to the [ARM Institute](https://arminstitute.org/) for generalization across the robots that they have, and for extension to other forms of manufacturing tasks
 
 ### Contributions
 
