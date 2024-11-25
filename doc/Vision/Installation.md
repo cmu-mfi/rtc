@@ -48,9 +48,7 @@ Relevant repository:\
 - Setup the python virtual environment and install the required packages.
   
   ```shell
-  $ python3 -m venv venv
-  $ source venv/bin/activate
-  $ pip install -e .
+  python3 -m venv venv && source venv/bin/activate && pip install -e .
   ```
 
 - Run the `test.py` script in the `camera/` and `robot/` modules to check the device interfaces.
@@ -75,7 +73,7 @@ Relevant repository:\
     
     ```shell
     # Run the calibration script
-    $ python scripts/robot_camera_calibration.py
+    python scripts/robot_camera_calibration.py
     ```
   
   - Calibration data and results will be saved in scripts directory. Move them to a desired directory, like `data/calibration/`.
@@ -94,21 +92,25 @@ Relevant repository:\
     
     ```shell
     # Run the calibration script
-    $ python scripts/gripper_camera_calibration.py
+    python scripts/gripper_camera_calibration.py
     ```
   
   - Calibration data and results will be saved in the scripts directory. Move them to a desired directory, like `data/calibration/`.
 
 **Step 4: Create Config Files**
 
-* Update the `place_object.yaml` config file with your setup parameters.   
+* Update the `place_object.yaml` config file with your setup parameters.
   
   ```shell
   # Create directory for training data to be stored
-  $ mkdir -p data/demonstrations/<dd-mm>
+  mkdir -p data/demonstrations/<dd-mm>
   
   # Copy a config file from demo-example
-  $ cp demo-example/demonstrations/08-14-wp/place_object.yaml data/demonstrations/<dd-mm>/
+  cp demo-example/demonstrations/08-14-wp/place_object.yaml data/demonstrations/<dd-mm>/
+  ```
+  
+  ```
+  
   ```
 
 **Step 5: TEACH - Collect training data**
@@ -117,10 +119,10 @@ Relevant repository:\
   
   ```shell
   # Activate the virtual environment, if not already done.
-  $ source venv/bin/activate
+  source venv/bin/activate
   
   # Run the teach script
-  $ python scripts/place_teach.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
+  python scripts/place_teach.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
   ```
   
   > A bash script can also be created to run the teach script for different connectors. See *.sh files in the `scripts/` directory for examples.
@@ -136,10 +138,10 @@ Relevant repository:\
   
   ```shell
   # Activate the virtual environment, if not already done.
-  $ source venv/bin/activate
+  source venv/bin/activate
   
   # Run the learn script
-  $ python scripts/place_learn.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
+  python scripts/place_learn.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
   ```
 
 - **Training the Model**. 
@@ -151,13 +153,15 @@ Relevant repository:\
     ```shell
     # (optional) Run the model training in a terminal multiplexer like tmux or screen.
     tmux new -s vision-training
+    ```
     
+    ```shell
     # Activate the virtual environment, if not already done.
-    $ source venv/bin/activate
+    source venv/bin/activate
     
     # Run the training script
-    $ cd model/taxpose
-    $ CUDA_VISIBLE_DEVICES=1 python scripts/train_residual_flow.py --config-name <path/to/taxpose/training/config>
+    cd model/taxpose
+    CUDA_VISIBLE_DEVICES=1 python scripts/train_residual_flow.py --config-name <path/to/taxpose/training/config>
     ```
   
   - Training will take a few hours to complete. Monitor the training progress on WANDB dashboard.
@@ -174,10 +178,10 @@ Relevant repository:\
   
   ```shell
   # Activate the virtual environment, if not already done.
-  $ source venv/bin/activate
+  source venv/bin/activate
   
   # Run the execute script
-  $ python scripts/place_execute.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
+  python scripts/place_execute.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
   ```
 
 **Step 8: Validate and Retrain**:
