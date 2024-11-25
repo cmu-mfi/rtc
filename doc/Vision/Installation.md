@@ -108,10 +108,6 @@ Relevant repository:\
   # Copy a config file from demo-example
   cp demo-example/demonstrations/08-14-wp/place_object.yaml data/demonstrations/<dd-mm>/
   ```
-  
-  ```
-  
-  ```
 
 **Step 5: TEACH - Collect training data**
 
@@ -125,7 +121,7 @@ Relevant repository:\
   python scripts/place_teach.py --config ../data/demonstrations/<dd-mm>/place_object.yaml
   ```
   
-  > A bash script can also be created to run the teach script for different connectors. See *.sh files in the `scripts/` directory for examples.
+  > A bash script can also be created to run the teach script for different connectors. See the \*.sh files in the `scripts/` directory for examples.
 
 - Data is collected in the `data/demonstrations/<dd-mm>` directory. Review the depth images of action and anchor objects to make sure the data is collected correctly. Adjust the parameters in the `training` section of the `place_object.yaml` file to get high quality data.
 
@@ -164,7 +160,7 @@ Relevant repository:\
     CUDA_VISIBLE_DEVICES=1 python scripts/train_residual_flow.py --config-name <path/to/taxpose/training/config>
     ```
   
-  - Training will take a few hours to complete. Monitor the training progress on WANDB dashboard.
+  - Training will take many hours to complete. Monitor the training progress on the WANDB dashboard.
   
   - Update the `training.model_config` parameter in the `place_object.yaml` file with the `<path/to/taxpose/training/config>`
   
@@ -189,4 +185,4 @@ Relevant repository:\
 - To validate the system use the `validate_execute()` method in the `ExecutePlace` class.
 - Run it a few times to get a sample set of data.
 - Use the `notebooks/visualize_pcd.ipynb` notebook to calculate the error and visualize the point cloud data for the action and anchor objects.
-- If the error is high, retrain the model by repeating steps 5-6-7.    
+- If the error is high, retrain the model by repeating steps 5-7.    
