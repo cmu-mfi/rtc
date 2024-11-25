@@ -55,11 +55,12 @@ This includes the installation of the software required to run the vibrotactile 
    
    - Prerequisites for the vibrotactile system: one robot arm, 2-4 contact microphones, one force torque sensor, one side camera, and one gripper.
    
-   - You will need to add a couple of lines to your `~/.bashrc` file with the proper ip addresses:
+   - You will need to add a couple of lines to your `~/.bashrc` file with the proper ip addresses and a path to your rtc repository folder, or just wherever you want to install the Vibrotactile system:
      
      ```shell
        export ROS_IP=<your computer ip>
        export ROS_MASTER_URI=http://<rosmaster computer ip>:11311
+       export RTC_REPOS_FOLDER=<path/to/vibro_tactile_toolbox/installation/folder>
      ```
    
    - Make sure the motoman ros1 docker is working with a robot namespace.
@@ -67,7 +68,7 @@ This includes the installation of the software required to run the vibrotactile 
    - Make sure the force torque sensor is publishing on the `/<robot namespace>/fts` topic.
      
      ```shell
-     cd Documents
+     cd $RTC_REPOS_FOLDER
      git clone https://github.com/cmu-mfi/vibro_tactile_toolbox.git 
      cd vibro_tactile_toolbox/docker
      bash build_docker.sh
@@ -82,10 +83,10 @@ This includes the installation of the software required to run the vibrotactile 
    
    - Run the system check test file
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
-     cd /home/Documents/vibro_tactile_toolbox
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox
      python tests/test_system.py -t nist -n <robot namespace>
      ```
 
@@ -102,7 +103,7 @@ This includes the installation of the software required to run the vibrotactile 
      is properly cropped and rotated. To modify it, go to the `launch/orbbec.launch` file and change the `x_offset`, `y_offset`, and `rotation_direction`. If you change the file, you will need to rerun the following commands in order to update the docker image with the changes:
      
      ```shell
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
      ```
 
@@ -115,108 +116,108 @@ This includes the installation of the software required to run the vibrotactile 
    
    - If the vibro_tactile_toolbox_container is already running, you can just create a new terminal using the command:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      bash new_terminal.sh
      ```
    
    - Otherwise you can start the vibro_tactile_toolbox_container with the command:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker 
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker 
      ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
      ```
    
    - To open the Robotiq Hand E gripper, you need to run the following command in the docker container.
      
-     ```
+     ```shell
      rosrun robotiq_mm_ros open_gripper.py
      ```
    
    - Then you will jog the robot so that when it closes it's fingers, it can perfectly pick up the connector. You can test the position by opening and closing the gripper and seeing if the connector moves from the original position.
      
-     ```
+     ```shell
      rosrun robotiq_mm_ros close_gripper.py
      rosrun robotiq_mm_ros open_gripper.py
      ```
    
    - After you are satisfied with the robot pose, you will need to run the `save_hande_pose` launch file to save the current robot pose.
      
-     ```
+     ```shell
      roslaunch vibro_tactile_toolbox save_hande_pose.launch namespace:=<robot namespace> 
      ```
    
    - The resulting saved pose will be located in the folder `/ros1_ws/src/vibro_tactile_toolbox/transforms/` in the file `hande_world.tf`. You can easily navigate to the folder by running the following command:
      
-     ```
+     ```shell
      roscd vibro_tactile_toolbox/transforms
      ```
    
    - You can verify that the file has changed by running the following command:
      
-     ```
+     ```shell
      git status
      ```
    
    - You will now need to move the saved hande pose file to the vibro_tactile_toolbox folder outside of the docker using the following command:
      
-     ```
-     cp hande_world.tf /home/Documents/vibro_tactile_toolbox/transforms/
+     ```shell
+     cp hande_world.tf $RTC_REPOS_FOLDER/vibro_tactile_toolbox/transforms/
      ```
    
    - Once you have run the above commands, you can create a new terminal outside of the docker to verify that the transform has been moved.
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/transforms/
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/transforms/
      git status
      ```
    
    - Next you will need to create a new folder in transforms that represents the name of the connector such as ethernet.
      
-     ```
+     ```shell
      mkdir ethernet
      ```
    
    - Afterwards, move the saved transform in and name it `world_pick.tf`
      
-     ```
+     ```shell
      mv hande_world.tf ethernet/world_pick.tf
      ```
    
    - Now you will need to close the robot's gripper and then jog the robot to the designated place pose where the connector in the Robotiq gripper is fully inserted into the receptacle. Again you will run the `save_hande_pose.launch` file inside the docker container.
      
-     ```
+     ```shell
      roslaunch vibro_tactile_toolbox save_hande_pose.launch namespace:=<robot namespace>
      ```
    
    - Then you will again copy the pose file to the vibro_tactile_toolbox_folder outside of the docker and name it `world_place.tf`.
      
-     ```
+     ```shell
      roscd vibro_tactile_toolbox/transforms
-     cp hande_world.tf /home/Documents/vibro_tactile_toolbox/transforms/ethernet/world_place.tf
+     cp hande_world.tf $RTC_REPOS_FOLDER/vibro_tactile_toolbox/transforms/ethernet/world_place.tf
      ```
    
-   - Next step, you can take a look at the launch file `collect_nist_audio_data.launch` inside of `~/Documents/vibro_tactile_toolbox/launch` and make any desired modifications such as the number of trials to collect.
+   - Next step, you can take a look at the launch file `collect_nist_audio_data.launch` inside of `$RTC_REPOS_FOLDER/vibro_tactile_toolbox/launch` and make any desired modifications such as the number of trials to collect.
    
    - Afterwards, it is very important to close all the previous docker containers and then run the following command in a terminal:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
      ```
    
    - Then once the docker containers have started, run the check again:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
-     cd /home/Documents/vibro_tactile_toolbox
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox
      python tests/test_system.py -t nist -n <robot namespace>
      ```
    
    - Finally to start the data collection, you will run:
      
-     ```
+     ```shell
      roslaunch vibro_tactile_toolbox collect_nist_audio_data.launch namespace:=<robot_namespace> connector_type:=ethernet
      ```
    
@@ -226,8 +227,8 @@ This includes the installation of the software required to run the vibrotactile 
    
    - First you will need to download my trained lego detector model from [here](https://drive.google.com/file/d/1SGcNrUVqfxy641kZhhMAM2H9WvDHTupR/view?usp=drive_link). Then you will move it into a models folder in vibro_tactile_toolbox.
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox
      mkdir models
      mv ~/Downloads/lego_model.pth models/
      ```
@@ -235,26 +236,26 @@ This includes the installation of the software required to run the vibrotactile 
    - Next you will need to make sure the docker containers are closed and start the docker compose up with the lego flag:
      
      ```shell
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      TYPE=lego NAMESPACE=<robot namespace> docker compose up --build
      ```
    
    - Next you will need to start the vibro_tactile_toolbox_container with the command:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker 
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker 
      ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
      ```
    
    - Then, you should remove all of the previously taught locations in the `/ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world/` folder using the following command:
      
-     ```
+     ```shell
      rm -rf /ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world/*
      ```
    
    - To register a lego pose, use the teach pendant to jog the robot so that it is pushing a 2x1 lego block down onto the lego board. Figure out the peg's x,y location by using the top left peg of the board as 0,0 and decreasing x towards the robot and increasing the y location from left to right. Use the following command to save the lego pose:
      
-     ```
+     ```shell
      roslaunch vibro_tactile_toolbox save_lego_pose.launch namespace:=<robot namespace> x:=<current x position> y:=<current y position>
      ```
    
@@ -262,32 +263,32 @@ This includes the installation of the software required to run the vibrotactile 
    
    - Once you have taught around 8 locations around the board, you will need to move all of the transforms outside of the docker using the following commands:
      
-     ```
-     rm -rf /home/Documents/vibro_tactile_toolbox/transforms/T_lego_world/
-     cp -r /ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world /home/Documents/vibro_tactile_toolbox/transforms/
+     ```shell
+     rm -rf $RTC_REPOS_FOLDER/vibro_tactile_toolbox/transforms/T_lego_world/
+     cp -r /ros1_ws/src/vibro_tactile_toolbox/transforms/T_lego_world $RTC_REPOS_FOLDER/vibro_tactile_toolbox/transforms/
      ```
    
-   - Next, you can take a look at the launch file `collect_lego_audio_data.launch` inside of `~/Documents/vibro_tactile_toolbox/launch` and make any desired modifications such as the number of trials to collect.
+   - Next, you can take a look at the launch file `collect_lego_audio_data.launch` inside of `$RTC_REPOS_FOLDER/vibro_tactile_toolbox/launch` and make any desired modifications such as the number of trials to collect.
    
    - Afterwards, it is very important to close all the previous docker containers and then run the following command in a terminal:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      TYPE=lego NAMESPACE=<robot namespace> docker compose up --build
      ```
    
    - Then once the docker containers have started, run the check again:
      
-     ```
-     cd ~/Documents/vibro_tactile_toolbox/docker
+     ```shell
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
      ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
-     cd /home/Documents/vibro_tactile_toolbox
+     cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox
      python tests/test_system.py -t lego -n <robot namespace>
      ```
    
    - Finally to start the data collection, you will run:
      
-     ```
+     ```shell
      roslaunch vibro_tactile_toolbox collect_lego_audio_data.launch namespace:=<robot_namespace> block_type:=<your current block type>
      ```
    
@@ -302,7 +303,7 @@ This includes the installation of the software required to run the vibrotactile 
       
       - Basically VOLS represents the volumes you have collected data at. CONNECTORS represents the connectors that you have collected data with. If you only collected `ethernet` you would only have "ethernet" in the (). VELS represents the velocities that you have collected data at. TRAIN_VS_TEST represents whether you have collected test data yet or not. If you haven't you would just have "vel_" in there. Finally ROBOT_NAME is the robot's namespace. For example, you could modify it to be:
         
-        ```
+        ```shell
         VOLS=(75)
         CONNECTORS=("ethernet")
         VELS=(0.01)
@@ -316,7 +317,7 @@ This includes the installation of the software required to run the vibrotactile 
       
       - Basically VOLS represents the volumes you have collected data at. BRICKS represents the brick types that you have collected data with. If you only collected `2x1` you would only have "2x1" in the (). VELS represents the velocities that you have collected data at. TRAIN_VS_TEST represents whether you have collected test data yet or not. If you haven't you would just have "vel_" in there. Finally ROBOT_NAME is the robot's namespace. For example, you could modify it to be:
         
-        ```
+        ```shell
         VOLS=(75)
         BRICKS=("2x1") 
         VELS=(0.01)
@@ -330,29 +331,29 @@ This includes the installation of the software required to run the vibrotactile 
       
       - Basically TYPES represents the type of connector you have collected data with and CHANNELS represents the audio channels you want to use. For example, training all of the audio channels for ethernet would result in:
         
-        ```
+        ```shell
         TYPES=("ethernet")
         CHANNELS=("0,1,2,3")
         ```
       
       - On the other hand training all of the audio channels for lego would result in:
         
-        ```
+        ```shell
         TYPES=("lego")
         CHANNELS=("0,1,2,3")
         ```
    
    4. After you have made the changes to the `convenience_scripts", you will need to again run:
       
-      ```
-      cd ~/Documents/vibro_tactile_toolbox/docker
+      ```shell
+      cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
       TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
       ```
       
       - Then once the dockers have been built, you will run:
         
-        ```
-        cd ~/Documents/vibro_tactile_toolbox/docker
+        ```shell
+        cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
         ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
         roscd vibro_tactile_toolbox
         bash convenience_scripts/make_nist_dataset.sh
@@ -361,35 +362,35 @@ This includes the installation of the software required to run the vibrotactile 
         bash convenience_scripts/test_trained_outcome_and_terminator_models.sh
         ```
    
-   5. Once the models have been trained, move them out of the docker to the models folder in `~/Documents/vibro_tactile_toolbox`:
+   5. Once the models have been trained, move them out of the docker to the models folder in `$RTC_REPOS_FOLDER/vibro_tactile_toolbox`:
       
-      ```
-      cp -r /ros1_ws/src/vibro_tactile_toolbox/models/* /home/Documents/vibro_tactile_toolbox/models/
+      ```shell
+      cp -r /ros1_ws/src/vibro_tactile_toolbox/models/* $RTC_REPOS_FOLDER/vibro_tactile_toolbox/models/
       ```
 
 6. **Step 6: EXECUTE - Validate the system**
    
-   1. To download already pretrained models, you can download them [here](https://drive.google.com/drive/folders/1QPUI7IPVllI9K_c3E34HhZLIIfjEob0-?usp=drive_link) and extract them into the `~/Documents/vibro_tactile_toolbox/models` folder.
+   1. To download already pretrained models, you can download them [here](https://drive.google.com/drive/folders/1QPUI7IPVllI9K_c3E34HhZLIIfjEob0-?usp=drive_link) and extract them into the `$RTC_REPOS_FOLDER/vibro_tactile_toolbox/models` folder.
    
    2. Next you will need to take a look at the `test_nist_audio_outcome.launch` and `test_lego_audio_outcome.launch` files and make changes depending on your preferences.
    
    3. Finally you will need to start the docker container using the following command for ethernet:
       
-      ```
-      cd ~/Documents/vibro_tactile_toolbox/docker
+      ```shell
+      cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
       TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
       ```
    
    4. Finally to start the nist evaluation, you will run:
       
-      ```
+      ```shell
       roslaunch vibro_tactile_toolbox test_nist_audio_outcome.launch namespace:=<robot_namespace> connector_type:=ethernet
       ```
    
    5. For lego you will instead run:
       
-      ```
-      cd ~/Documents/vibro_tactile_toolbox/docker
+      ```shell
+      cd $RTC_REPOS_FOLDER/vibro_tactile_toolbox/docker
       TYPE=lego NAMESPACE=<robot namespace> docker compose up --build
       ```
       
