@@ -31,16 +31,16 @@ The website is documentation of the robotic system which is result of first thre
 
 The current version of the robot training center was possible due to team work and contributions from following members
 
-> *David Held, Octavian Donca, Oliver Kroemer, Kevin Zhang, Christopher Chang, Gary Fedder, Rod Heiple, Stephanie Steren Ruta, Shobhit Aggarwal*
+> *David Held, Octavian Donca, Oliver Kroemer, Kevin Zhang, Christopher Chang, Michael Skocik, Henrik Bingemann, Gary Fedder, Rod Heiple, Stephanie Steren Ruta, Shobhit Aggarwal*
 
 ### Site Index
 
-* [System Overview](https://cmu-mfi.github.io/rtc/System.html)
-* [Video Highlights](https://cmu-mfi.github.io/rtc/Highlights.html)
-* [Thrust 1 - Vision System](https://cmu-mfi.github.io/rtc/Vision/Vision.html)
-* [Thrust 2 - Vibrotactile System](https://cmu-mfi.github.io/rtc/Vibrotactile/Vibrotactile.html)
-* [Thrust 3 - Digital Data Backbone](https://cmu-mfi.github.io/rtc/DDB/DDB.html)
-* [Contact](https://cmu-mfi.github.io/rtc/Contact.html)
+* [System Overview](System.md)
+* [Video Highlights](Highlights.md)
+* [Thrust 1 - Vision System](Vision/Vision.md)
+* [Thrust 2 - Vibrotactile System](Vibrotactile/Vibrotactile.md)
+* [Thrust 3 - Digital Data Backbone](DDB/DDB.md)
+* [Contact](Contact.html)
 
 <!-- ### Environment
 There are two environments of reference in this project:
