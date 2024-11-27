@@ -40,7 +40,7 @@ The current version of the robot training center was possible due to team work a
 * [Thrust 1 - Vision System](Vision/Vision.md)
 * [Thrust 2 - Vibrotactile System](Vibrotactile/Vibrotactile.md)
 * [Thrust 3 - Digital Data Backbone](DDB/DDB.md)
-* [Contact](Contact.html)
+* [Contact](Contact.md)
 
 <!-- ### Environment
 There are two environments of reference in this project:
@@ -62,6 +62,7 @@ Contact.md
 
 Vision/Vision.md
 Vision/Installation.md
+Vision/Tutorial.md
 ``` 
 
 ```{toctree}
@@ -78,6 +79,4 @@ Vibrotactile/Installation.md
 
 DDB/DDB.md
 DDB/Installation.md
-<!-- DDB/Tutorial.md -->
-
 ```
