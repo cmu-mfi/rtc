@@ -3,6 +3,7 @@
 This section contains tutorials for the Vision System. The tutorials are designed to help you get started with the Vision System and provide a guide to calibrate cameras, collect data, train the model, and execute the model.
 
 ```{toctree}
+:maxdepth: 2
 Tutorials/calibration.md
 Tutorials/data-collection.md
 Tutorials/training-model.md
