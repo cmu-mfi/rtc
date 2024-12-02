@@ -11,7 +11,9 @@ There are two types of robot-camera calibration:
 
 ## Method: eye-on-base
 
-<img src="../../../../files/vision/eye-on-base.png" alt="eye-on-base" width="400"/>
+<!-- <img src="../../../../files/vision/eye-on-base.png" alt="eye-on-base" width="400"/> -->
+
+![eye-on-base](../../files/vision/eye-on-base.png)
 
 | Known Value(s) | Collected Samples | Unknown Value(s) |
 | --- | --- | --- |
@@ -22,8 +24,8 @@ Given a setup of camera on fixed base, the procedure to calibrate the robot-came
 1. Mount a marker on the robot end effector.
 2. Estimate {math}`^gT_m`, the transformation matrix marker to gripper. \ 
     This value is determined from CAD reference *(preferred)* or measuring the marker center from end effector frame. If using ArUco marker, the marker center is the origin of the marker frame.
-<!-- ![aruco-frame](../../files/vision/aruco-frame.png) -->
-<center><img src='../../../../files/vision/aruco-frame.png' alt='aruco-frame' width='250'/></center>
+![aruco-frame](../../files/vision/aruco-frame.png)
+<!-- <center><img src='../../../../files/vision/aruco-frame.png' alt='aruco-frame' width='250'/></center> -->
 
 3. Collect samples of {math}`^bT_g^{(i)}` and {math}`^cT_m^{(i)}`. \
     Each sample is collected by moving the robot to a new pose and capturing the image of the marker. The pose of the marker in the image is used to estimate {math}`^cT_m^{(i)}`. The pose of the robot end effector is used to estimate {math}`^bT_g^{(i)}`.
@@ -59,6 +61,8 @@ In this setup, we use one of the calibrated cameras fixed on base to calibrate a
     \epsilon = \frac{1}{n} \cdot {\sum_{i=1}^{n}{\lVert (^gT_c \cdot {^cT_m^{(i)}}) [:,3] - (^gT_m^{(i)})[:,3]\rVert}}
 ```
 
+---
+
 ## Code Overview
 
 ![calibration-code](../../files/vision/calibration.png)
@@ -73,12 +77,14 @@ To collect samples, `collect_data` method takes three class objects as input: `r
 
 **Usage**: Scripts, [`scripts/robot_camera_calibration.py`](https://github.com/cmu-mfi/rtc_vision_toolbox/blob/main_v2/scripts/robot_camera_calibration.py) and [`scripts/gripper_camera_calibration.py`](https://github.com/cmu-mfi/rtc_vision_toolbox/blob/main_v2/scripts/gripper_camera_calibration.py) can be used to execute the calibration method discussed above and show in the figure. 
 
+---
 
 ## Useful Tips
 
 - **Sample Collection**: Samples with high rotational variance and low translational variance have better calibration results. Adjust that in `calibartions.py` file.
 - **Reprojection Error**: A low reprojection error indicates a good calibration. Error value <2mm is considered good.
 
+---
 
 ## Calibration Algorithms
 
