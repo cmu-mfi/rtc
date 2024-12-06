@@ -65,6 +65,8 @@ In this setup, we use one of the calibrated cameras fixed on base to calibrate a
 
 ## Code Overview
 
+<a href="https://github.com/cmu-mfi/rtc_vision_toolbox" class="inline-button"><i class="fab fa-github"></i>rtc_vision_toolbox</a>
+
 ![calibration-code](../../files/vision/calibration.png)
 
 All the calibration related methods in above figure are in [`calibration/calibration.py`](https://github.com/cmu-mfi/rtc_vision_toolbox/blob/main_v2/calibration/calibrations.py). \
