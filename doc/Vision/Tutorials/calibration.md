@@ -81,6 +81,15 @@ To collect samples, `collect_data` method takes three class objects as input: `r
 
 ---
 
+## Try it out
+
+*...todo...*
+
+<!-- 1. add a sample data set in rtc_vision_toolbox repo -->
+<!-- 2. add a script snippet to solve rigid transformation and calculate reprojection error -->
+
+---
+
 ## Useful Tips
 
 - **Sample Collection**: Samples with high rotational variance and low translational variance have better calibration results. Adjust that in `calibartions.py` file.
@@ -90,7 +99,10 @@ To collect samples, `collect_data` method takes three class objects as input: `r
 
 ## Calibration Algorithms
 
-- **One Sample Estimate**  
+The calibration algorithms implemented in `calibration/calibrations.py` under `solve_rigid_transformation` method. [\[code ref\]](https://github.com/cmu-mfi/rtc_vision_toolbox/blob/47b0af7bc265572f9084445944d5625987304d8e/calibration/calibrations.py#L142)
+
+- **One Sample Estimate** \
+  `ONE_SAMPLE_ESTIMATE` \
   Calculate the following for each sample, and select the one with the best average reprojection error for the set.
 
 ```{math}
@@ -98,15 +110,18 @@ To collect samples, `collect_data` method takes three class objects as input: `r
 ```
 
 - **Kabsch-Umeyama algorithm**  
+  `SVD_ALGEBRAIC` \
   The algorithm calculates the optimal rotation matrix that minimizes the root mean squared deviation between two paired sets of points [\[1\]](#references).
 
 - **OpenCV Approach 1: Rotation then Translation**  
+  `CALIB_HAND_EYE_TSAI` `CALIB_HAND_EYE_PARK` \
   In this approach, OpenCV provides the following methods to first estimate the rotation and then the translation (separable solutions):
   - R. Tsai, R. Lenz: *A New Technique for Fully Autonomous and Efficient 3D Robotics Hand/Eye Calibration* [\[2\]](#references)
   - F. Park, B. Martin: *Robot Sensor Calibration: Solving AX = XB on the Euclidean Group* [\[3\]](#references)
   - R. Horaud, F. Dornaika: *Hand-Eye Calibration* [\[4\]](#references)
 
 - **OpenCV Approach 2: Simultaneous rotation and translation**  
+  `CALIB_HAND_EYE_ANDREFF` \
   Another approach consists of estimating simultaneously the rotation and the translation (simultaneous solutions), with the following implemented methods:
   - N. Andreff, R. Horaud, B. Espiau: *On-line Hand-Eye Calibration* [\[5\]](#references)
   - K. Daniilidis: *Hand-Eye Calibration Using Dual Quaternions* [\[6\]](#references)

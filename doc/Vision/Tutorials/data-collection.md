@@ -62,6 +62,6 @@ Refer `scripts/place_teach.py` to see how to use the `TeachPlace` class to colle
     | ![](../../files/vision/good_pcd.png) | ![](../../files/vision/bad_pcd.png) |
 
 
-## Dummy setup
+## Try it out
 
 <insert gazebo sim>
