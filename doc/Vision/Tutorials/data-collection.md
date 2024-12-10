@@ -25,7 +25,7 @@ It is assumed that the system setup (like, camera calibration) is done before da
 * `Devices` class is used to define the devices used in the system. It is used to define the camera and robot used in the system. It uses a config file to intialize the required device classes.
 * `TeachPlace` class is used to define the data collection procedure for an insertion task. It uses the `Devices` class to initialize the camera and robot.
 
-All the blocks in [data collection procedure](data-collection) are implemented in the `TeachPlace` class in `rtc_core/place_skill/teach_place.py`.
+All the blocks in [data collection procedure](data-collection) are implemented in the `TeachPlace` class in `rtc_core/place_skill/place_teach.py`.
 
 Refer `scripts/place_teach.py` to see how to use the `TeachPlace` class to collect data.
 
