@@ -72,10 +72,8 @@ This includes the installation of the software required to run the vibrotactile 
 
     - Run system check test
         ```
-        cd ~/Documents/vibro_tactile_toolbox/docker
-        ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
-        cd /home/Documents/vibro_tactile_toolbox
-        python tests/test_system.py -t nist -n <robot namespace>
+        cd vibro_tactile_toolbox
+        bash ./convenience_scripts/system_check.sh
         ```
 
 3. **Step 3: Modify/Create Config Files**
