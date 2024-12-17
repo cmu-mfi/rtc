@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDB - Tutorial &mdash; Robotics Training Center 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9951d260" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/Firefly a robot arm doing assembly task, industry 4.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Robotics Training Center
+              <img src="../_static/Firefly a robot arm doing assembly task, industry 4.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../System.html">System Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../System.html#cmu-research-setup">CMU Research Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../System.html#bom">BOM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Highlights.html">Video Highlights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vision System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Vision.html">Vision System - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#teach-data-collection">TEACH: Data Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#learn-model-training">LEARN: Model Training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Vision.html#data-input-for-training">Data input for training:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#execute-model-inference">EXECUTE: Model Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Installation.html">Vision System - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#hardware">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#software">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Tutorial.html">Vision System - Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/calibration.html">Robot-Camera Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#method-eye-on-base">Method: eye-on-base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#method-eye-on-hand">Method: eye-on-hand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#try-it-out">Try it out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#calibration-algorithms">Calibration Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Vision/Tutorials/calibration.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/data-collection.html">TEACH - Collecting Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/training-model.html">LEARN - Training a model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#code-overview">Code Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Vision/Tutorials/training-model.html#configuration-files">Configuration Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/execution.html">EXECUTE - Skill Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vibrotactile System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html">Vibrotactile System - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#teach-data-collection">TEACH: Data Collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#nist-data-collection">NIST Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#lego-data-collection">LEGO Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#learn-model-training">LEARN: Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#execute-model-inference">EXECUTE: Model Inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#waterproof-online-inference">Waterproof Online Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#d-sub-online-inference">D-SUB Online Inference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vibrotactile/Installation.html">Vibrotactile System - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Installation.html#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Installation.html#mandatory">Mandatory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Installation.html#optional">Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Installation.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Installation.html#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Digital Data Backbone</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DDB.html">Digital Data Backbone - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DDB.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DDB.html#layers">Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DDB.html#current-capability">Current Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DDB.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">DDB - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#step-1-broker-setup-pub-sub-broker-layer">Step 1: Broker Setup (Pub-Sub Broker Layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#step-2-cloud-databases-cloud-storage-layer">Step 2: Cloud Databases (Cloud Storage Layer)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#aveva-pi-historian">Aveva PI Historian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#sql">SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#cloud-file-storage">Cloud File Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#step-4-event-listeners">Step 4: Event Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#step-5-retrieval-services">Step 5: Retrieval Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#system-checks-and-troubleshooting">System Checks and Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Robotics Training Center</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DDB - Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/cmu-mfi/rtc/blob/main/doc/DDB/Tutorial.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ddb-tutorial">
+<h1>DDB - Tutorial<a class="headerlink" href="#ddb-tutorial" title="Link to this heading"></a></h1>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CMU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
