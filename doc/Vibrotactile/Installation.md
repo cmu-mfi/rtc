@@ -49,6 +49,7 @@ This includes the installation of the software required to run the vibrotactile 
     - Make sure the devices are connected and working properly.
     - Make sure you connect a monitor to the computer that is connected to the UMC404HD Audio Interface and log into Ubuntu once before following the instructions below.
     - Pre-requisite for the vibrotactile system is one robot arm, 2-4 contact microphones, one force torque sensor, one side camera and one gripper.
+    - Software pre-requisites: [Docker](https://docs.docker.com/get-docker/), [Docker Compose](https://docs.docker.com/compose/install/), [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
     - You will need to add a couple of lines to your `~/.bashrc` file with the proper ip addresses.
          ```shell
         export ROS_IP=<your computer ip>
