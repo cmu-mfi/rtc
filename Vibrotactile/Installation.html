@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibrotactile System - Installation &mdash; Robotics Training Center 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9951d260" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/Firefly a robot arm doing assembly task, industry 4.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Digital Data Backbone - Overview" href="../DDB/DDB.html" />
+    <link rel="prev" title="Vibrotactile System - Overview" href="Vibrotactile.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Robotics Training Center
+              <img src="../_static/Firefly a robot arm doing assembly task, industry 4.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../System.html">System Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../System.html#cmu-research-setup">CMU Research Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../System.html#bom">BOM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Highlights.html">Video Highlights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vision System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Vision.html">Vision System - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#teach-data-collection">TEACH: Data Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#learn-model-training">LEARN: Model Training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Vision.html#data-input-for-training">Data input for training:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#execute-model-inference">EXECUTE: Model Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Installation.html">Vision System - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#hardware">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#software">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Tutorial.html">Vision System - Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/calibration.html">Robot-Camera Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#method-eye-on-base">Method: eye-on-base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#method-eye-on-hand">Method: eye-on-hand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#try-it-out">Try it out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#calibration-algorithms">Calibration Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Vision/Tutorials/calibration.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/data-collection.html">TEACH - Collecting Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/training-model.html">LEARN - Training a model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#code-overview">Code Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Vision/Tutorials/training-model.html#configuration-files">Configuration Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/execution.html">EXECUTE - Skill Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vibrotactile System</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vibrotactile.html">Vibrotactile System - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Vibrotactile.html#teach-data-collection">TEACH: Data Collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Vibrotactile.html#nist-data-collection">NIST Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Vibrotactile.html#lego-data-collection">LEGO Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Vibrotactile.html#learn-model-training">LEARN: Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Vibrotactile.html#execute-model-inference">EXECUTE: Model Inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Vibrotactile.html#waterproof-online-inference">Waterproof Online Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Vibrotactile.html#d-sub-online-inference">D-SUB Online Inference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vibrotactile System - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory">Mandatory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional">Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Digital Data Backbone</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DDB/DDB.html">Digital Data Backbone - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DDB/DDB.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../DDB/DDB.html#layers">Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DDB/DDB.html#current-capability">Current Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DDB/DDB.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../DDB/Installation.html">DDB - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DDB/Installation.html#step-1-broker-setup-pub-sub-broker-layer">Step 1: Broker Setup (Pub-Sub Broker Layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DDB/Installation.html#step-2-cloud-databases-cloud-storage-layer">Step 2: Cloud Databases (Cloud Storage Layer)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../DDB/Installation.html#aveva-pi-historian">Aveva PI Historian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DDB/Installation.html#sql">SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DDB/Installation.html#cloud-file-storage">Cloud File Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../DDB/Installation.html#step-4-event-listeners">Step 4: Event Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DDB/Installation.html#step-5-retrieval-services">Step 5: Retrieval Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DDB/Installation.html#system-checks-and-troubleshooting">System Checks and Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Robotics Training Center</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vibrotactile System - Installation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/cmu-mfi/rtc/blob/main/doc/Vibrotactile/Installation.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vibrotactile-system-installation">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Vibrotactile System - Installation</a><a class="headerlink" href="#vibrotactile-system-installation" title="Link to this heading"></a></h1>
+<p><img alt="vbt-setup" src="../_images/vbt-real_setup.png" /></p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#vibrotactile-system-installation" id="id1">Vibrotactile System - Installation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hardware" id="id2">Hardware</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mandatory" id="id3">Mandatory</a></p></li>
+<li><p><a class="reference internal" href="#optional" id="id4">Optional</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#software" id="id5">Software</a></p>
+<ul>
+<li><p><a class="reference internal" href="#installation-steps" id="id6">Installation Steps</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="hardware">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Hardware</a><a class="headerlink" href="#hardware" title="Link to this heading"></a></h2>
+<p>The figure below shows the experiment setup. The list of hardware components can be found below as well as in the <a class="reference external" href="https://docs.google.com/spreadsheets/d/1p2As_AB7A4FWpQJU8ZtA_rXWKELAA8dq/edit?usp=sharing&amp;amp;ouid=112281614924032477147&amp;amp;rtpof=true&amp;amp;sd=true">BOM sheet</a>.
+<img alt="vbt-setup" src="../_images/vbt-setup.png" /></p>
+<section id="mandatory">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Mandatory</a><a class="headerlink" href="#mandatory" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Suggested Order Link</p></th>
+<th class="head"><p>Quantity</p></th>
+<th class="head"><p>Price</p></th>
+<th class="head"><p>Total Cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Behringer UMC 404HD</p></td>
+<td><p><a class="reference external" href="https://www.bhphotovideo.com/c/product/1821221-REG/behringer_umc404hd_audiophile_4x4_24_bit_192_khz.html?ap=y&amp;amp;smp=Y">B&amp;H Photo Video</a></p></td>
+<td><p>1</p></td>
+<td><p>$109.00</p></td>
+<td><p>$109.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>5 Pack of Piezoelectric Contact Microphones</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/TIMESETL-Microphone-Self-Adhesive-Instrument-Mandolin/dp/B07ZTBVKRD/ref=sr_1_5?crid=1OHNBI7Y4OM4U&amp;amp;dib=eyJ2IjoiMSJ9.-PibDNlinRz79bIpdumGJHAAdW3PdumsNrUWTrBZB4hYry4WdTr78zPfu4ZnYQWFlwNLi0yY8THnebiukewvbaDljZXfaSdQ0njt5TC4QlHQUbw-4_M51b1tVUYlgZl6bLj9okH0wZqaFYOOhAo4upt3WI4d1Tj6ApClqPZNZep-iIMk3dItQ0ypgfMbxqWdPuSmfoJVkW-mXZQSGQE25jBOfYMTwTv_7UsH_2RJuBoABTUdnXDijXNkBa1PxqxMXAsXIjy9HopNVacSJfhPereGmHMmK3gLGBOpPmN7eJc.JVs0GaesD3pa5oN6mlhvDtEM4Jdsj8TEvta9yf8iEBU&amp;amp;dib_tag=se&amp;amp;keywords=contact+microphone&amp;amp;qid=1728404098&amp;amp;sprefix=contact+microphone%2Caps%2C116&amp;amp;sr=8-5">Amazon</a></p></td>
+<td><p>1</p></td>
+<td><p>$14.99</p></td>
+<td><p>$14.99</p></td>
+</tr>
+<tr class="row-even"><td><p>Cable Matters 2-Pack 1/4 Inch Cable 6 Feet</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/Cable-Matters-2-Pack-Straight-Instrument/dp/B073RMQKYG/ref=sr_1_5?crid=3CAXQV30GAW34&amp;amp;dib=eyJ2IjoiMSJ9.Kt4WgCJJxKgRCeq0DAJKS-hNN4erYY2vaNujsRJ79_VO1tDk5Lk_iwploE1cLZ84vf7-BUaTykY2GWsQ-ok3Cxo31LQ-_hUiD-dSBHQGE66CwqGDRkAYst0p9N8vxKShFFfwDUwgWAv5Zr7fwUBfH6WKmorjgqEohj5LpuAUZSFXZHCbsmui-RZapHChPC0qWVZIvvXxeVhLABGOOtuXiKXuITo_nMy1gSxIlrr5y5yHl3O_oRLR_WkkS9XHgQiJUMZWROeesGbWotCmyGCRZQ21p-_ISN1SPshgiikzoZc.UjQgkGwOghuAMmPTfaykA48QvzMRfXTSK0Cc3Xy4KKg&amp;amp;dib_tag=se&amp;amp;keywords=1%2F4%2Bto%2B1%2F4%2Baudio%2Bcable&amp;amp;qid=1728404189&amp;amp;sprefix=1%2F4%2Bto%2B1%2F4%2Baudio%2Bcabl%2Caps%2C112&amp;amp;sr=8-5&amp;amp;th=1">Amazon</a></p></td>
+<td><p>2</p></td>
+<td><p>$9.99</p></td>
+<td><p>$18.98</p></td>
+</tr>
+<tr class="row-odd"><td><p>5952 VHB Tape: 2.5cm x 15 ft</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/3M-Scotch-5952-VHB-Tape/dp/B01BU7038A/ref=sr_1_5?crid=3H9RB26LUQG7O&amp;amp;dib=eyJ2IjoiMSJ9.Ij13Xm94FJr9PZn3aLfDPpOQpL0kG5guXpqFnrtxxApBgO0D4_uru2Ya49socXCKt5_lS1IyyK-f2AFkj_JdW1nJqTNxcJqE6c0EUpz9_DOc1_U379iAkGnTiFRQaadsdrcnWBLYHFkT-ZXK5OC1fCDohgApHC7BwbDJ-ecp2gXJpj-4Ydpq2VgP8zKaCT-Ue_GTKiRmtjZBTlUEcu3XDjyv7lHTFG1vEs_tZeiESQg.eMBWUCijaoBW8H9EShv5IFQmyg74ExMHGe5X_Q8d4eU&amp;amp;dib_tag=se&amp;amp;keywords=VHB+tape&amp;amp;qid=1710778116&amp;amp;sprefix=vhb+tape%2Caps%2C92&amp;amp;sr=8-5#customerReviews">Amazon</a></p></td>
+<td><p>1</p></td>
+<td><p>$13.99</p></td>
+<td><p>$13.99</p></td>
+</tr>
+<tr class="row-even"><td><p>ATI Gamma Net Type SI-32-2.5</p></td>
+<td><p><a class="reference external" href="https://www.ati-ia.com/products/ft/ft_models.aspx?id=Gamma">ATI</a></p></td>
+<td><p>1</p></td>
+<td><p>~$6000</p></td>
+<td><p>~$6000</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="optional">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Optional</a><a class="headerlink" href="#optional" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Suggested Order Link</p></th>
+<th class="head"><p>Quantity</p></th>
+<th class="head"><p>Price</p></th>
+<th class="head"><p>Total Cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Intel Realsense D405</p></td>
+<td><p><a class="reference external" href="https://store.intelrealsense.com/buy-intel-realsense-depth-camera-d405.html">Intel</a></p></td>
+<td><p>1</p></td>
+<td><p>$272.00</p></td>
+<td><p>$272.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orbbec Femto Bolt</p></td>
+<td><p><a class="reference external" href="https://store.orbbec.com/products/femto-bolt">Orbbec</a></p></td>
+<td><p>1</p></td>
+<td><p>$418</p></td>
+<td><p>$418</p></td>
+</tr>
+<tr class="row-even"><td><p>Amazon Basics USB-A 3.0 Extension Cable, 3 Meters</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/dp/B00NH12O5I?th=1">Amazon</a></p></td>
+<td><p>2</p></td>
+<td><p>$8.54</p></td>
+<td><p>$17.08</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="software">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Software</a><a class="headerlink" href="#software" title="Link to this heading"></a></h2>
+<p>There are two levels of software installation required for the vibrotactile system.</p>
+<p>Relevant repositories:<br />
+<a href="https://github.com/cmu-mfi/motoman_ros1" class="inline-button"><i class="fab fa-github"></i>motoman_ros1</a>
+<a href="https://github.com/cmu-mfi/vibro_tactile_toolbox" class="inline-button"><i class="fab fa-github"></i>vibro_tactile_toolbox</a></p>
+<p><strong>1. Device Interfaces</strong><br />
+This includes the installation of the software required to interface with the hardware components like robots, cameras, grippers, etc.</p>
+<p>ROS Nodes for the devices can be launched using docker-compose.yml in <code class="docutils literal notranslate"><span class="pre">docker/</span></code> directory. It will need modification if using other hardware, like different cameras.</p>
+<p><strong>2. Vibrotactile System</strong><br />
+This includes the installation of the software required to run the vibrotactile system which involves teach, learn and execute tasks described in the <a class="reference internal" href="Vibrotactile.html"><span class="std std-doc">overview</span></a> section.</p>
+<section id="installation-steps">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Installation Steps</a><a class="headerlink" href="#installation-steps" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Step 1: Device Interfaces</strong></p>
+<ul>
+<li><p>Make sure the devices are connected and working properly.</p></li>
+<li><p>Make sure you connect a monitor to the computer that is connected to the UMC404HD Audio Interface and log into Ubuntu once before following the instructions below.</p></li>
+<li><p>Pre-requisite for the vibrotactile system is one robot arm, 2-4 contact microphones, one force torque sensor, one side camera and one gripper.</p></li>
+<li><p>Software pre-requisites: <a class="reference external" href="https://docs.docker.com/get-docker/">Docker</a>, <a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a>, <a class="reference external" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker">NVIDIA Container Toolkit</a></p></li>
+<li><p>Make sure the motoman ros1 docker is working with a robot namespace.</p></li>
+<li><p>Make sure the force torque sensor is publishing on the <code class="docutils literal notranslate"><span class="pre">/&lt;robot</span> <span class="pre">namespace&gt;/fts</span></code> topic.</p></li>
+<li><p>First decide where to install the vibro_tactile_toolbox.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/desired/folder
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cmu-mfi/vibro_tactile_toolbox.git<span class="w"> </span>
+<span class="nb">cd</span><span class="w"> </span>vibro_tactile_toolbox/docker
+</pre></div>
+</div>
+</li>
+<li><p>Next you will need to modify <code class="docutils literal notranslate"><span class="pre">vibro_tactile_toolbox/docker/vibrotactile.env</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://&lt;your<span class="w"> </span>computer<span class="w"> </span>ip&gt;:11311
+<span class="nv">ROS_IP</span><span class="o">=</span>&lt;your<span class="w"> </span>computer<span class="w"> </span>ip&gt;
+<span class="nv">NAMESPACE</span><span class="o">=</span>&lt;robot<span class="w"> </span>namespace&gt;
+<span class="nv">TYPE</span><span class="o">=</span>NIST
+<span class="nv">DATA_DIR</span><span class="o">=</span>/path/to/desired/data/directory
+<span class="nv">PROJ_DIR</span><span class="o">=</span>/path/to/desired/folder/vibro_tactile_toolbox/
+<span class="nv">ROBOT_IP</span><span class="o">=</span>&lt;your<span class="w"> </span>robot<span class="w"> </span>ip&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Add environment variables to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>vibro_tactile_toolbox/docker
+<span class="nb">echo</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/vibrotactile.env<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</li>
+<li><p>Afterwards you will build the dockers following the below commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>build_docker.sh
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>Note: If using different hardware, modify the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file accordingly.
+<br></p>
+</div></blockquote>
+</li>
+<li><p><strong>Step 2: Systems Check</strong></p>
+<ul>
+<li><p>Run system check test</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/convenience_scripts/systems_check.sh
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Step 3: Modify/Create Config Files</strong></p>
+<ul class="simple">
+<li><p>You can look through and modify the config files in the config folder such as <code class="docutils literal notranslate"><span class="pre">nist.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">lego.yaml</span></code>.</p></li>
+<li><p>Also if your end effector to robot transformation is different, you will need to modify the file <code class="docutils literal notranslate"><span class="pre">transforms/hande_ee.tf</span></code> or <code class="docutils literal notranslate"><span class="pre">transforms/lego_ee.tf</span></code> to account for the differences.</p></li>
+<li><p>You will need to adjust the side camera view according to how you mounted the camera. To do so, you need to follow these steps:</p></li>
+</ul>
+<ol class="arabic">
+<li><p>Open a new terminal and run the following steps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>xhost +
+bash $PROJ_DIR/docker/new_terminal.sh
+rosrun vibro_tactile_toolbox determine_camera_parameters.py $NAMESPACE 
+</pre></div>
+</div>
+</li>
+<li><p>Next click on the Rotate button on the top left of the window named RAW IMAGE until the image is correctly rotated to be upright.
+Then click on the location of the connector socket that will be used in the data collection. Check the image in the CROPPED IMAGE window. Once you are happy with the view, then press ‘q’ on the keyboard. The terminal will print out the correct camera parameters that you will need to copy into the <code class="docutils literal notranslate"><span class="pre">launch/orbbec.launch</span></code> in the vibro_tactile_toolbox folder. In particular, you will need to modify the <code class="docutils literal notranslate"><span class="pre">rotation</span></code>, <code class="docutils literal notranslate"><span class="pre">x_offset</span></code> and <code class="docutils literal notranslate"><span class="pre">y_offset</span></code> parameters.
+Then you will need to save the file and run the following commands to restart the docker containers.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PROJ_DIR</span>/docker
+docker<span class="w"> </span>compose<span class="w"> </span>down
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p><strong>Step 4: TEACH - Collect training data</strong></p>
+<ol class="arabic simple">
+<li><p>NIST Connectors</p></li>
+</ol>
+<ul>
+<li><p>The first step to teach a new connector is to place the connector at a consistent and repeatable location such as a corner. For this tutorial, I will be pretending to use an ethernet cable, but you can subsitute the word <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> with whichever connector you would like.</p></li>
+<li><p>Next, you will need to open the robot’s gripper if you are using the Robotiq Hand E.</p></li>
+<li><p>If the vibro_tactile_toolbox_container is already running, you can just create a new terminal using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/docker/new_terminal.sh
+</pre></div>
+</div>
+</li>
+<li><p>To open the Robotiq Hand E gripper, you need to run the following command in the docker container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rosrun robotiq_mm_ros open_gripper.py $NAMESPACE
+</pre></div>
+</div>
+</li>
+<li><p>Then you will jog the robot so that when it closes it’s fingers, it can perfectly pick up the connector. You can test the position by opening and closing the gripper and seeing if the connector moves from the original position.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rosrun robotiq_mm_ros close_gripper.py $NAMESPACE
+rosrun robotiq_mm_ros open_gripper.py $NAMESPACE
+</pre></div>
+</div>
+</li>
+<li><p>After you are satisfied with the robot pose, you will need to run the <code class="docutils literal notranslate"><span class="pre">save_hande_pose</span></code> launch file to save the current robot pose.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roslaunch vibro_tactile_toolbox save_hande_pose.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR
+</pre></div>
+</div>
+</li>
+<li><p>The resulting saved pose will be located in the <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/transforms/</span></code> folder in the file <code class="docutils literal notranslate"><span class="pre">hande_world.tf</span></code>. You can get there in a new terminal using the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/transforms
+</pre></div>
+</div>
+</li>
+<li><p>Next you will need to create a new folder in transforms that represents the name of the connector such as ethernet.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">ethernet</span>
+</pre></div>
+</div>
+</li>
+<li><p>Afterwards, move the saved transform in and name it <code class="docutils literal notranslate"><span class="pre">world_pick.tf</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/transforms
+mv hande_world.tf ethernet/world_pick.tf
+</pre></div>
+</div>
+</li>
+<li><p>Now you will need to close the robot’s gripper and then jog the robot to the designated place pose where the connector in the Robotiq gripper is fully inserted into the receptacle. Again you will run the <code class="docutils literal notranslate"><span class="pre">save_hande_pose.launch</span></code> file inside the docker container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rosrun robotiq_mm_ros close_gripper.py $NAMESPACE
+# JOG robot to placement pose
+roslaunch vibro_tactile_toolbox save_hande_pose.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR
+</pre></div>
+</div>
+</li>
+<li><p>Then you will again move the <code class="docutils literal notranslate"><span class="pre">hande_world.tf</span></code> pose file to the <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> folder.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/transforms
+mv hande_world.tf ethernet/world_place.tf
+</pre></div>
+</div>
+</li>
+<li><p>Next step, you can take a look at the launch file <code class="docutils literal notranslate"><span class="pre">collect_nist_audio_data.launch</span></code> inside of <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/launch</span></code> and make any desired modifications such as the number of trials to collect.</p></li>
+<li><p>Afterwards, you will restart all the docker containers using the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/docker
+docker compose down
+docker compose up --build -d
+</pre></div>
+</div>
+</li>
+<li><p>Then once the docker containers have started, run the check again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/convenience_scripts/systems_check.sh
+</pre></div>
+</div>
+</li>
+<li><p>Finally to start the data collection, you will run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/docker/new_terminal.sh
+# OPEN THE GRIPPER
+rosrun robotiq_mm_ros open_gripper.py $NAMESPACE
+# MOVE THE CONNECTOR TO ITS RESET POSE
+roslaunch vibro_tactile_toolbox collect_nist_audio_data.launch namespace:=$NAMESPACE data_dir:=$DATA_DIR proj_dir:=$PROJ_DIR connector_type:=ethernet
+</pre></div>
+</div>
+</li>
+<li><p>Keep an eye on the robot and hold onto the connector when the robot releases it.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>LEGO</p></li>
+</ol>
+<ul>
+<li><p>For the lego task, we will be assuming that the lego board is fixed. You will need to register multiple positions on the board within a region.</p></li>
+<li><p>First you will need to download my trained lego detector model from <a class="reference external" href="https://drive.google.com/file/d/1SGcNrUVqfxy641kZhhMAM2H9WvDHTupR/view?usp=drive_link">here</a>. Then you will move it into a models folder in vibro_tactile_toolbox.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR
+mkdir models
+mv ~/Downloads/lego_model.pth models/
+</pre></div>
+</div>
+</li>
+<li><p>Next you will need to make sure the docker containers are closed with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">down</span></code> in the <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/docker</span></code> folder and edit the <code class="docutils literal notranslate"><span class="pre">vibrotactile.env</span></code> file in the <code class="docutils literal notranslate"><span class="pre">docker</span></code> folder so that <code class="docutils literal notranslate"><span class="pre">TYPE=lego</span></code> instead of <code class="docutils literal notranslate"><span class="pre">TYPE=nist</span></code>.</p></li>
+<li><p>Next you will need to remove all of the previously taught locations in the <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/transforms/T_lego_world/</span></code> folder using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm -rf $PROJ_DIR/transforms/T_lego_world/*
+</pre></div>
+</div>
+</li>
+<li><p>Then you can start the docker containers again:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PROJ_DIR</span>/docker
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
+</pre></div>
+</div>
+</li>
+<li><p>To register a lego pose, use the teach pendant to jog the robot so that it is pushing a 2x1 lego block down onto the lego board. Figure out the peg’s x,y location by using the top left peg of the board as 0,0 and decreasing x towards the robot and increasing the y location from left to right. Use the following command to save the lego pose:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/docker/new_terminal.sh
+roslaunch vibro_tactile_toolbox save_lego_pose.launch namespace:=&lt;robot namespace&gt; proj_dir:=$PROJ_DIR x:=&lt;current x position&gt; y:=&lt;current y position&gt;
+</pre></div>
+</div>
+</li>
+<li><p>The lego pose will then be saved in the folder <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/transforms/T_lego_world/</span></code> with the file name <code class="docutils literal notranslate"><span class="pre">lego_world_&lt;current</span> <span class="pre">x</span> <span class="pre">position&gt;_&lt;current_y_position&gt;.tf</span></code>.</p></li>
+<li><p>Next, you can take a look at the launch file <code class="docutils literal notranslate"><span class="pre">collect_lego_audio_data.launch</span></code> inside of <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/launch</span></code> and make any desired modifications such as the number of trials to collect.</p></li>
+<li><p>Afterwards, it is very important to restart the docker contains using the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/docker
+docker compose down
+docker compose up --build -d
+</pre></div>
+</div>
+</li>
+<li><p>Then once the docker containers have started, run the check again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/convenience_scripts/systems_check.sh
+</pre></div>
+</div>
+</li>
+<li><p>Finally to start the data collection, you will run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/docker/new_terminal.sh
+roslaunch vibro_tactile_toolbox collect_lego_audio_data.launch namespace:=$NAMESPACE data_dir:=$DATA_DIR proj_dir:=$PROJ_DIR block_type:=&lt;your current block type&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Keep an eye on the robot and stop the data collection script if the lego flies off the board. If the lego vision predictions are incorrect, you will need to adjust the top_bbox and bot_bbox in the <code class="docutils literal notranslate"><span class="pre">lego_detector</span></code> in <code class="docutils literal notranslate"><span class="pre">config/lego.yaml</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Step 5: LEARN - Train the models</strong></p>
+<ul class="simple">
+<li><p>If you want to download sample data, you can download them <a class="reference external" href="https://drive.google.com/drive/folders/1_JnpDF9Mceyzx34Hz1qKBsjdGAOaGSJM?usp=drive_link">here</a> and unzip them into your Documents/vibro_tactile_data folder.</p></li>
+</ul>
+<ol class="arabic">
+<li><p>NIST Connectors</p>
+<ul class="simple">
+<li><p>To create the NIST dataset, you will need to modify the script in <code class="docutils literal notranslate"><span class="pre">convenience_scripts/make_nist_dataset.sh</span></code>.</p></li>
+<li><p>Basically VOLS represents the volumes you have collected data at. CONNECTORS represents the connectors that you have collected data with. If you only collected <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> you would only have “ethernet” in the (). VELS represents the velocities that you have collected data at. TRAIN_VS_TEST represents whether you have collected test data yet or not. If you haven’t you would just have “vel_” in there. Finally ROBOT_NAME is the robot’s namespace. For example, you could modify it to be:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VOLS</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">CONNECTORS</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;ethernet&quot;</span><span class="p">)</span>
+<span class="n">VELS</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">TRAIN_VS_TEST</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;vel_&quot;</span><span class="p">)</span>
+<span class="n">ROBOT_NAME</span><span class="o">=</span><span class="s2">&quot;&lt;robot namespace&gt;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>LEGO</p>
+<ul class="simple">
+<li><p>To create the Lego dataset, you will need to modify the script in <code class="docutils literal notranslate"><span class="pre">convenience_scripts/make_lego_dataset.sh</span></code>.</p></li>
+<li><p>Basically VOLS represents the volumes you have collected data at. BRICKS represents the brick types that you have collected data with. If you only collected <code class="docutils literal notranslate"><span class="pre">2x1</span></code> you would only have “2x1” in the (). VELS represents the velocities that you have collected data at. TRAIN_VS_TEST represents whether you have collected test data yet or not. If you haven’t you would just have “vel_” in there. Finally ROBOT_NAME is the robot’s namespace. For example, you could modify it to be:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VOLS</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">BRICKS</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;2x1&quot;</span><span class="p">)</span> 
+<span class="n">VELS</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">TRAIN_VS_TEST</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;vel_&quot;</span><span class="p">)</span>
+<span class="n">ROBOT_NAME</span><span class="o">=</span><span class="s2">&quot;&lt;robot namespace&gt;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Training the outcome and terminator models</p>
+<ul class="simple">
+<li><p>To train the audio outcome and terminator models, you will need to modify the script in <code class="docutils literal notranslate"><span class="pre">convenience_scripts/train_outcome_and_terminator_models.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">convenience_scripts/test_trained_outcome_and_terminator_models.sh</span></code>.</p></li>
+<li><p>Basically TYPES represents the type of connector you have collected data with and CHANNELS represents the audio channels you want to use. For example, training all of the audio channels for ethernet would result in:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPES</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;ethernet&quot;</span><span class="p">)</span>
+<span class="n">CHANNELS</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;0,1,2,3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>On the other hand training all of the audio channels for lego would result in:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPES</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lego&quot;</span><span class="p">)</span>
+<span class="n">CHANNELS</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;0,1,2,3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>After you have made the changes to the `convenience_scripts”, you will need to again run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/docker
+docker compose up --build -d
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then once the dockers have been built, you will run:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bash $PROJ_DIR/docker/new_terminal.sh
+bash $PROJ_DIR/convenience_scripts/make_nist_dataset.sh
+bash $PROJ_DIR/convenience_scripts/train_outcome_and_terminator_models.sh
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p><strong>Step 6: EXECUTE - Validate the system</strong></p>
+<ol class="arabic">
+<li><p>To download already pretrained models, you can download them <a class="reference external" href="https://drive.google.com/drive/folders/1QPUI7IPVllI9K_c3E34HhZLIIfjEob0-?usp=drive_link">here</a> and extract them into the <code class="docutils literal notranslate"><span class="pre">$PROJ_DIR/models</span></code> folder.</p></li>
+<li><p>Next you will need to take a look at the <code class="docutils literal notranslate"><span class="pre">test_nist_audio_outcome.launch</span></code> and <code class="docutils literal notranslate"><span class="pre">test_lego_audio_outcome.launch</span></code> files and make changes depending on your preferences.</p></li>
+<li><p>Finally you will need to start the docker container using the following command for ethernet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/docker
+docker compose up --build
+</pre></div>
+</div>
+</li>
+<li><p>Finally to start the nist evaluation, you will run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roslaunch vibro_tactile_toolbox test_nist_audio_outcome.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR data_dir:=$DATA_DIR connector_type:=ethernet
+</pre></div>
+</div>
+</li>
+<li><p>For lego you will instead run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $PROJ_DIR/docker
+docker compose up --build
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roslaunch vibro_tactile_toolbox test_lego_audio_outcome.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR data_dir:=$DATA_DIR block_type:=&lt;your current block type&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Vibrotactile.html" class="btn btn-neutral float-left" title="Vibrotactile System - Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../DDB/DDB.html" class="btn btn-neutral float-right" title="Digital Data Backbone - Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CMU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

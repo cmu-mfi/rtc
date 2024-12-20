@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDB - Installation &mdash; Robotics Training Center 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9951d260" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+  
+    <link rel="shortcut icon" href="../_static/Firefly a robot arm doing assembly task, industry 4.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Digital Data Backbone - Overview" href="DDB.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Robotics Training Center
+              <img src="../_static/Firefly a robot arm doing assembly task, industry 4.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../System.html">System Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../System.html#cmu-research-setup">CMU Research Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../System.html#bom">BOM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Highlights.html">Video Highlights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contact.html">Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vision System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Vision.html">Vision System - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#teach-data-collection">TEACH: Data Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#learn-model-training">LEARN: Model Training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Vision.html#data-input-for-training">Data input for training:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Vision.html#execute-model-inference">EXECUTE: Model Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Installation.html">Vision System - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#hardware">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#software">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Installation.html#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vision/Tutorial.html">Vision System - Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/calibration.html">Robot-Camera Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#method-eye-on-base">Method: eye-on-base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#method-eye-on-hand">Method: eye-on-hand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#try-it-out">Try it out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/calibration.html#calibration-algorithms">Calibration Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Vision/Tutorials/calibration.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/data-collection.html">TEACH - Collecting Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/data-collection.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/training-model.html">LEARN - Training a model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#code-overview">Code Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Vision/Tutorials/training-model.html#configuration-files">Configuration Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/training-model.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vision/Tutorials/execution.html">EXECUTE - Skill Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#code-overview">Code Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#useful-tips">Useful Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vision/Tutorials/execution.html#try-it-out">Try it out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vibrotactile System</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html">Vibrotactile System - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#teach-data-collection">TEACH: Data Collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#nist-data-collection">NIST Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#lego-data-collection">LEGO Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#learn-model-training">LEARN: Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#execute-model-inference">EXECUTE: Model Inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#waterproof-online-inference">Waterproof Online Inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Vibrotactile.html#d-sub-online-inference">D-SUB Online Inference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Vibrotactile/Installation.html">Vibrotactile System - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Installation.html#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Installation.html#mandatory">Mandatory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Installation.html#optional">Optional</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibrotactile/Installation.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Vibrotactile/Installation.html#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Digital Data Backbone</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DDB.html">Digital Data Backbone - Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DDB.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DDB.html#layers">Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DDB.html#current-capability">Current Capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DDB.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DDB - Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-broker-setup-pub-sub-broker-layer">Step 1: Broker Setup (Pub-Sub Broker Layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-cloud-databases-cloud-storage-layer">Step 2: Cloud Databases (Cloud Storage Layer)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aveva-pi-historian">Aveva PI Historian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql">SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-file-storage">Cloud File Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-event-listeners">Step 4: Event Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-retrieval-services">Step 5: Retrieval Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-checks-and-troubleshooting">System Checks and Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Robotics Training Center</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DDB - Installation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/cmu-mfi/rtc/blob/main/doc/DDB/Installation.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ddb-installation">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">DDB - Installation</a><a class="headerlink" href="#ddb-installation" title="Link to this heading"></a></h1>
+<p>This section will provide a step-by-step guide to setting up the Digital Data Backbone. The installation process will include setting up the MQTT Broker, Cloud Databases, Event Listeners, and Retrieval Services. These components are explained in detail in the <a class="reference internal" href="DDB.html"><span class="std std-doc">Overview</span></a> section.</p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ddb-installation" id="id1">DDB - Installation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#step-1-broker-setup-pub-sub-broker-layer" id="id2">Step 1: Broker Setup (Pub-Sub Broker Layer)</a></p></li>
+<li><p><a class="reference internal" href="#step-2-cloud-databases-cloud-storage-layer" id="id3">Step 2: Cloud Databases (Cloud Storage Layer)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#aveva-pi-historian" id="id4">Aveva PI Historian</a></p></li>
+<li><p><a class="reference internal" href="#sql" id="id5">SQL</a></p></li>
+<li><p><a class="reference internal" href="#cloud-file-storage" id="id6">Cloud File Storage</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#step-4-event-listeners" id="id7">Step 4: Event Listeners</a></p></li>
+<li><p><a class="reference internal" href="#step-5-retrieval-services" id="id8">Step 5: Retrieval Services</a></p></li>
+<li><p><a class="reference internal" href="#system-checks-and-troubleshooting" id="id9">System Checks and Troubleshooting</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="step-1-broker-setup-pub-sub-broker-layer">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Step 1: Broker Setup (Pub-Sub Broker Layer)</a><a class="headerlink" href="#step-1-broker-setup-pub-sub-broker-layer" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Download the MQTT Broker Zip File and install in desired location.</p></li>
+<li><p>The MQTT Broker Link: <a>https://www.emqx.com/en/downloads/broker/v5.3.2</a><br/></p></li>
+<li><p>Once installed navigate to the bin folder and start the broker by running the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">emqx</span>\<span class="nb">bin</span>
+<span class="n">emqx</span> <span class="n">start</span>
+</pre></div>
+</div>
+</li>
+<li><p>Check if the broker is running by going to <a>http://localhost:18083/</a> in a web browser.</p></li>
+<li><p>Log in with the default username <code class="docutils literal notranslate"><span class="pre">admin</span></code> and password <code class="docutils literal notranslate"><span class="pre">public</span></code></p></li>
+<li><p>Additional configurations can be done via the web portal.</p></li>
+</ul>
+</section>
+<section id="step-2-cloud-databases-cloud-storage-layer">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Step 2: Cloud Databases (Cloud Storage Layer)</a><a class="headerlink" href="#step-2-cloud-databases-cloud-storage-layer" title="Link to this heading"></a></h2>
+<section id="aveva-pi-historian">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Aveva PI Historian</a><a class="headerlink" href="#aveva-pi-historian" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The Aveva PI Historian requires a few different components, including PI Data Archive, PI Interface Server, PI Assett Framework Server, and PI Vision. Follow the installation guide below to install the components. <br />
+<a>https://docs.aveva.com/bundle/pi-server-l-install/page/1020115.html</a><br><br></p></li>
+<li><p><strong>Storage Connector</strong>: MQTT Sparkplug B <br />
+The MQTT Sparkplug B connector is used to connect the MQTT Broker to the PI Historian. The connector is available in the link below:<br>
+<a>https://docs.aveva.com/bundle/pi-connector-for-mqtt-sparkplug/page/1010369.html</a></p></li>
+</ul>
+</section>
+<section id="sql">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">SQL</a><a class="headerlink" href="#sql" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Get a SQL Server</p>
+<ul class="simple">
+<li><p>Setup on your local machine <a class="reference external" href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">(https://www.microsoft.com/en-us/sql-server/sql-server-downloads)</a></p></li>
+<li><p>Or use a cloud service (<a class="reference external" href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">AWS</a>, <a class="reference external" href="https://azure.microsoft.com/en-us/products/azure-sql">Azure</a>, <a class="reference external" href="https://cloud.google.com/sql-server">Google Cloud</a>)</p></li>
+</ul>
+<p><em>NOTE: We used an existing SQL Server on CMU campus cloud for our project.</em></p>
+</li>
+<li><p>Create a SQL database in a SQL server</p>
+<p><a>https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database?view=sql-server-ver16</a></p>
+</li>
+<li><p>Create the following tables and stored procedures by executing the scripts below:<br />
+<a href='https://github.com/cmu-mfi/dbb_interfaces/blob/main/retrieval/ProjectList.sql'>ProjectList<a></br>
+<a href='https://github.com/cmu-mfi/dbb_interfaces/blob/main/retrieval/ExperimentList.sql'>ExperimentList</a></br></br></p></li>
+<li><p><strong>Storage Connector</strong></p>
+<ul class="simple">
+<li><p>SQL Store Procedures
+Create stored procedure by executing the scripts below:<br />
+<a href='https://github.com/cmu-mfi/dbb_interfaces/blob/main/from_mqtt/mqtt_sql/InsertXmlData.sql'>InsertXmlData</a></br></br></p></li>
+<li><p>XML to SQL <br />
+We use SQL to store XML data. A python script is used in <code class="docutils literal notranslate"><span class="pre">from_mqtt/mqtt_sql/XMLtoSQL</span></code> folder. The script reads the XML file and sends it to the stored procedure.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="cloud-file-storage">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Cloud File Storage</a><a class="headerlink" href="#cloud-file-storage" title="Link to this heading"></a></h3>
+<p>Partition a drive on a VM to create Cloud File storage.</p>
+<p>Connector: MQTT Msgs</p>
+</section>
+</section>
+<section id="step-4-event-listeners">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Step 4: Event Listeners</a><a class="headerlink" href="#step-4-event-listeners" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Event listeners are basically converters that convert data from a local system message format to desired MQTT message format.</p></li>
+<li><p>The event listeners are available in the <code class="docutils literal notranslate"><span class="pre">to_mqtt</span></code> folder.</p></li>
+<li><p>An event listener is setup on a local machine which is both connected to the data generator source and the MQTT broker on the cloud network</p></li>
+<li><p>Choose an event listener based on data generator source and run following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navigate to the event listener folder</span>
+<span class="n">cd</span> <span class="n">to_mqtt</span><span class="o">/&lt;</span><span class="n">event_listener_name</span><span class="o">&gt;</span>
+
+<span class="c1"># Setup virtual environment and install required libraries</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./.</span><span class="n">venv</span>
+<span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># Command to start the event listener</span>
+<span class="n">python</span> <span class="n">scripts</span><span class="o">/</span><span class="n">mqtt_publisher</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p><em>NOTE: commands may vary based on the event listener chosen. Follow steps in <code class="docutils literal notranslate"><span class="pre">to_mqtt/&lt;event_listener_name&gt;/README.md</span></code></em></p>
+</li>
+</ul>
+</section>
+<section id="step-5-retrieval-services">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Step 5: Retrieval Services</a><a class="headerlink" href="#step-5-retrieval-services" title="Link to this heading"></a></h2>
+<ul>
+<li><p>The retrieval service uses an HTML front-end and Flask Server back-end.</p></li>
+<li><p>Start the server by running the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Virtual Enviorment</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./.</span><span class="n">venv</span>
+
+<span class="c1"># Install Required Libraries</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># Command to start the API</span>
+<span class="n">python</span> <span class="n">API</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p>Click on HTML file to start the UI</p>
+<p>…</p>
+</li>
+</ul>
+</section>
+<section id="system-checks-and-troubleshooting">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">System Checks and Troubleshooting</a><a class="headerlink" href="#system-checks-and-troubleshooting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li></li>
+<li><p>…</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="DDB.html" class="btn btn-neutral float-left" title="Digital Data Backbone - Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CMU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
