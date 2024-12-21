@@ -168,6 +168,9 @@ This includes the installation of the software required to run the vibrotactile 
     - Finally to start the data collection, you will run:
         ```
         bash $PROJ_DIR/docker/new_terminal.sh
+        # OPEN THE GRIPPER
+        rosrun robotiq_mm_ros open_gripper.py $NAMESPACE
+        # MOVE THE CONNECTOR TO ITS RESET POSE
         roslaunch vibro_tactile_toolbox collect_nist_audio_data.launch namespace:=$NAMESPACE data_dir:=$DATA_DIR proj_dir:=$PROJ_DIR connector_type:=ethernet
         ```
     - Keep an eye on the robot and hold onto the connector when the robot releases it.
@@ -256,29 +259,27 @@ This includes the installation of the software required to run the vibrotactile 
         ```
         bash $PROJ_DIR/docker/new_terminal.sh
         bash $PROJ_DIR/convenience_scripts/make_nist_dataset.sh
-        bash $PROJ_DIR/convenience_scripts/make_lego_dataset.sh
         bash $PROJ_DIR/convenience_scripts/train_outcome_and_terminator_models.sh
-        bash $PROJ_DIR/convenience_scripts/test_trained_outcome_and_terminator_models.sh
         ```
 
 6. **Step 6: EXECUTE - Validate the system**
-    1. To download already pretrained models, you can download them [here](https://drive.google.com/drive/folders/1QPUI7IPVllI9K_c3E34HhZLIIfjEob0-?usp=drive_link) and extract them into the `~/Documents/vibro_tactile_toolbox/models` folder.
+    1. To download already pretrained models, you can download them [here](https://drive.google.com/drive/folders/1QPUI7IPVllI9K_c3E34HhZLIIfjEob0-?usp=drive_link) and extract them into the `$PROJ_DIR/models` folder.
     2. Next you will need to take a look at the `test_nist_audio_outcome.launch` and `test_lego_audio_outcome.launch` files and make changes depending on your preferences.
     3. Finally you will need to start the docker container using the following command for ethernet:
         ```
-        cd ~/Documents/vibro_tactile_toolbox/docker
+        cd $PROJ_DIR/docker
         docker compose up --build
         ```
     4. Finally to start the nist evaluation, you will run:
         ```
-        roslaunch vibro_tactile_toolbox test_nist_audio_outcome.launch namespace:=$NAMESPACE connector_type:=ethernet
+        roslaunch vibro_tactile_toolbox test_nist_audio_outcome.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR data_dir:=$DATA_DIR connector_type:=ethernet
         ```
     5. For lego you will instead run:
         ```
-        cd ~/Documents/vibro_tactile_toolbox/docker
+        cd $PROJ_DIR/docker
         docker compose up --build
         ```
         and
         ```
-        roslaunch vibro_tactile_toolbox test_lego_audio_outcome.launch namespace:=$NAMESPACE block_type:=<your current block type>
+        roslaunch vibro_tactile_toolbox test_lego_audio_outcome.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR data_dir:=$DATA_DIR block_type:=<your current block type>
         ```
