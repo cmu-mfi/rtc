@@ -58,7 +58,7 @@ This includes the installation of the software required to run the vibrotactile 
         git clone https://github.com/cmu-mfi/vibro_tactile_toolbox.git 
         cd vibro_tactile_toolbox/docker
         ```
-    - Next you will need to modify the vibrotactile.env file in the vibro_tactile_toolbox/docker folder using your desired text editor.
+    - Next you will need to modify `vibro_tactile_toolbox/docker/vibrotactile.env`
         ```shell
         ROS_MASTER_URI=http://<your computer ip>:11311
         ROS_IP=<your computer ip>
@@ -68,14 +68,16 @@ This includes the installation of the software required to run the vibrotactile 
         PROJ_DIR=/path/to/desired/folder/vibro_tactile_toolbox/
         ROBOT_IP=<your robot ip>
         ```
-    - Next add the following line to the end of your `~/.bashrc` file.
+    - Add environment variables to `~/.bashrc` file.
         ```shell
-        source /path/to/desired/folder/vibro_tactile_toolbox/docker/vibrotactile.env
+        cd vibro_tactile_toolbox/docker
+        echo source $(pwd)/vibrotactile.env >> ~/.bashrc
+        source ~/.bashrc
         ```
     - Afterwards you will build the dockers following the below commands:
         ```shell
         bash build_docker.sh
-        docker compose up --build
+        docker compose up --build -d
         ```
     > Note: If using different hardware, modify the `docker-compose.yml` file accordingly.
 <br>
@@ -84,8 +86,7 @@ This includes the installation of the software required to run the vibrotactile 
 
     - Run system check test
         ```
-        cd $PROJ_DIR
-        bash ./convenience_scripts/system_check.sh
+        bash $PROJ_DIR/convenience_scripts/systems_check.sh
         ```
 
 3. **Step 3: Modify/Create Config Files**
@@ -95,18 +96,17 @@ This includes the installation of the software required to run the vibrotactile 
     - You will need to adjust the side camera view according to how you mounted the camera. To do so, you need to follow these steps:
     1. Open a new terminal and run the following steps:
         ```
-        cd $PROJ_DIR/docker
         xhost +
-        bash ./new_terminal.sh
+        bash $PROJ_DIR/docker/new_terminal.sh
         rosrun vibro_tactile_toolbox determine_camera_parameters.py $NAMESPACE 
         ```
     2. Next click on the Rotate button on the top left of the window named RAW IMAGE until the image is correctly rotated to be upright.
-    Then click on the location of the connector socket that will be used in the data collection. Then press 'q' on the keyboard. The terminal will print out the correct camera parameters that you will need to copy into the `launch/orbbec.launch` in the vibro_tactile_toolbox folder. In particular, you will need to modify the `rotation`, `x_offset` and `y_offset` parameters.
+    Then click on the location of the connector socket that will be used in the data collection. Check the image in the CROPPED IMAGE window. Once you are happy with the view, then press 'q' on the keyboard. The terminal will print out the correct camera parameters that you will need to copy into the `launch/orbbec.launch` in the vibro_tactile_toolbox folder. In particular, you will need to modify the `rotation`, `x_offset` and `y_offset` parameters.
     Then you will need to save the file and run the following commands to restart the docker containers.
         ```shell
         cd $PROJ_DIR/docker
         docker compose down
-        docker compose up --build
+        docker compose up --build -d
         ```
 
 4. **Step 4: TEACH - Collect training data**
@@ -115,8 +115,7 @@ This includes the installation of the software required to run the vibrotactile 
     - Next, you will need to open the robot's gripper if you are using the Robotiq Hand E.
     - If the vibro_tactile_toolbox_container is already running, you can just create a new terminal using the command:
         ```
-        cd $PROJ_DIR/docker
-        bash new_terminal.sh
+        bash $PROJ_DIR/docker/new_terminal.sh
         ```
     - To open the Robotiq Hand E gripper, you need to run the following command in the docker container.
         ```
@@ -141,14 +140,18 @@ This includes the installation of the software required to run the vibrotactile 
         ```
     - Afterwards, move the saved transform in and name it `world_pick.tf`
         ```
+        cd $PROJ_DIR/transforms
         mv hande_world.tf ethernet/world_pick.tf
         ```
     - Now you will need to close the robot's gripper and then jog the robot to the designated place pose where the connector in the Robotiq gripper is fully inserted into the receptacle. Again you will run the `save_hande_pose.launch` file inside the docker container.
         ```
+        rosrun robotiq_mm_ros close_gripper.py $NAMESPACE
+        # JOG robot to placement pose
         roslaunch vibro_tactile_toolbox save_hande_pose.launch namespace:=$NAMESPACE proj_dir:=$PROJ_DIR
         ```
     - Then you will again move the `hande_world.tf` pose file to the `ethernet` folder.
         ```
+        cd $PROJ_DIR/transforms
         mv hande_world.tf ethernet/world_place.tf
         ```
     - Next step, you can take a look at the launch file `collect_nist_audio_data.launch` inside of `$PROJ_DIR/launch` and make any desired modifications such as the number of trials to collect.
@@ -156,15 +159,15 @@ This includes the installation of the software required to run the vibrotactile 
         ```
         cd $PROJ_DIR/docker
         docker compose down
-        docker compose up --build
+        docker compose up --build -d
         ```
     - Then once the docker containers have started, run the check again:
         ```
-        cd $PROJ_DIR
-        bash convenience_scripts/systems_check.sh
+        bash $PROJ_DIR/convenience_scripts/systems_check.sh
         ```
     - Finally to start the data collection, you will run:
         ```
+        bash $PROJ_DIR/docker/new_terminal.sh
         roslaunch vibro_tactile_toolbox collect_nist_audio_data.launch namespace:=$NAMESPACE data_dir:=$DATA_DIR proj_dir:=$PROJ_DIR connector_type:=ethernet
         ```
     - Keep an eye on the robot and hold onto the connector when the robot releases it.
@@ -184,10 +187,11 @@ This includes the installation of the software required to run the vibrotactile 
     - Then you can start the docker containers again:
         ```shell
         cd $PROJ_DIR/docker
-        docker compose up --build
+        docker compose up --build -d
         ```
     - To register a lego pose, use the teach pendant to jog the robot so that it is pushing a 2x1 lego block down onto the lego board. Figure out the peg's x,y location by using the top left peg of the board as 0,0 and decreasing x towards the robot and increasing the y location from left to right. Use the following command to save the lego pose:
         ```
+        bash $PROJ_DIR/docker/new_terminal.sh
         roslaunch vibro_tactile_toolbox save_lego_pose.launch namespace:=<robot namespace> proj_dir:=$PROJ_DIR x:=<current x position> y:=<current y position>
         ```
     - The lego pose will then be saved in the folder `$PROJ_DIR/transforms/T_lego_world/` with the file name `lego_world_<current x position>_<current_y_position>.tf`.
@@ -196,15 +200,15 @@ This includes the installation of the software required to run the vibrotactile 
         ```
         cd $PROJ_DIR/docker
         docker compose down
-        docker compose up --build
+        docker compose up --build -d
         ```
     - Then once the docker containers have started, run the check again:
         ```
-        cd $PROJ_DIR
-        bash convenience_scripts/systems_check.sh
+        bash $PROJ_DIR/convenience_scripts/systems_check.sh
         ```
     - Finally to start the data collection, you will run:
         ```
+        bash $PROJ_DIR/docker/new_terminal.sh
         roslaunch vibro_tactile_toolbox collect_lego_audio_data.launch namespace:=$NAMESPACE data_dir:=$DATA_DIR proj_dir:=$PROJ_DIR block_type:=<your current block type>
         ```
     - Keep an eye on the robot and stop the data collection script if the lego flies off the board. If the lego vision predictions are incorrect, you will need to adjust the top_bbox and bot_bbox in the `lego_detector` in `config/lego.yaml`.
@@ -245,22 +249,16 @@ This includes the installation of the software required to run the vibrotactile 
         ```
     4. After you have made the changes to the `convenience_scripts", you will need to again run:
         ```
-        cd ~/Documents/vibro_tactile_toolbox/docker
-        TYPE=nist NAMESPACE=<robot namespace> docker compose up --build
+        cd $PROJ_DIR/docker
+        docker compose up --build -d
         ```
         - Then once the dockers have been built, you will run:
         ```
-        cd ~/Documents/vibro_tactile_toolbox/docker
-        ./run -i vibro_tactile_toolbox:noetic -c vibro_tactile_toolbox_container -g
-        roscd vibro_tactile_toolbox
-        bash convenience_scripts/make_nist_dataset.sh
-        bash convenience_scripts/make_lego_dataset.sh
-        bash convenience_scripts/train_outcome_and_terminator_models.sh
-        bash convenience_scripts/test_trained_outcome_and_terminator_models.sh
-        ```
-    5. Once the models have been trained, move them out of the docker to the models folder in `~/Documents/vibro_tactile_toolbox`:
-        ```
-        cp -r /ros1_ws/src/vibro_tactile_toolbox/models/* /home/Documents/vibro_tactile_toolbox/models/
+        bash $PROJ_DIR/docker/new_terminal.sh
+        bash $PROJ_DIR/convenience_scripts/make_nist_dataset.sh
+        bash $PROJ_DIR/convenience_scripts/make_lego_dataset.sh
+        bash $PROJ_DIR/convenience_scripts/train_outcome_and_terminator_models.sh
+        bash $PROJ_DIR/convenience_scripts/test_trained_outcome_and_terminator_models.sh
         ```
 
 6. **Step 6: EXECUTE - Validate the system**
